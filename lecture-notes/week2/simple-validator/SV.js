@@ -2,7 +2,8 @@ validNumber();
 
 function validNumber(){
     var phoneNumber = prompt("Enter your phone number. It WILL NOT be used for SPAM.");
-    if (phoneNumber.charAt(3) === "-" && phoneNumber.charAt(7) === "-" && phoneNumber.length === 12 
+    if (phoneNumber.match(/^\d{3}-\d{3}-\d{4}$/)
+        /*phoneNumber.charAt(3) === "-" && phoneNumber.charAt(7) === "-" && phoneNumber.length === 12 
         && phoneNumber.charAt(0) >= 0 && phoneNumber.charAt(0) <= 9
         && phoneNumber.charAt(1) >= 0 && phoneNumber.charAt(1) <= 9 
         && phoneNumber.charAt(2) >= 0 && phoneNumber.charAt(2) <= 9 
@@ -12,7 +13,7 @@ function validNumber(){
         && phoneNumber.charAt(8) >= 0 && phoneNumber.charAt(8) <= 9
         && phoneNumber.charAt(9) >= 0 && phoneNumber.charAt(9) <= 9 
         && phoneNumber.charAt(10) >= 0 && phoneNumber.charAt(10) <= 9 
-        && phoneNumber.charAt(11) >= 0 && phoneNumber.charAt(11) <= 9){
+        && phoneNumber.charAt(11) >= 0 && phoneNumber.charAt(11) <= 9*/){
         alert ("Valid number");
         validDate();
     }else{
@@ -29,14 +30,15 @@ function validNumber(){
 
 function validDate(){
     var birthDate = prompt("Enter your date of birth. Use MM/DD/YY format");
-    if(birthDate.charAt(2) === "/" && birthDate.charAt(5) === "/" && birthDate.length === 8
+    if(birthDate.match(/^\d{2}\/\d{2}\/\d{2}$/)
+        /*birthDate.charAt(2) === "/" && birthDate.charAt(5) === "/" && birthDate.length === 8
         && birthDate.charAt(0) >= 0 && birthDate.charAt(0) <= 1
         && birthDate.charAt(1) >= 0 && birthDate.charAt(1) <= 9
         && birthDate.charAt(3) >= 0 && birthDate.charAt(3) <= 3
         && birthDate.charAt(4) >= 0 && birthDate.charAt(4) <= 9
         && birthDate.charAt(6) >= 0 && birthDate.charAt(6) <= 9
         && birthDate.charAt(7) >= 0 && birthDate.charAt(7) <= 9
-        ){
+        */){
         alert ("Valid date");
         validPostalCode();
     }else{
