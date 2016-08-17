@@ -49,13 +49,21 @@ toArray(1,2,3);
 ///////////////////////////////////////
 
 function startsWithA(word){
-    if(word[0] == "A" || "a"){
+    if(word.charAt(0) == "A" || word.charAt(0) == "a"){
         return (true);
     }else{
         return (false);
     }
 }
 
-startsWithA();
+startsWithA("word");
+
+//////////////////////////////////////////
+
+function excite(word){
+    return(word + "!!!");
+}
+
+excite("word");
 
 //////////////////////////////////////////
