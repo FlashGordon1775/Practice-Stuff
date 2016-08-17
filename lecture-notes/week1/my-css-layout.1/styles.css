@@ -1,0 +1,102 @@
+/*
+    - Comma seperated selectors (combo) are a way applying properties to multiple
+    types of elements at once
+
+    - all elements have default styles, over your career you will come to
+    remember most of them
+*/
+
+* { /* don't abuse this selector! */
+    box-sizing: border-box;
+}
+
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #efefef;
+    font-size: 20px;
+    /*font-size: 0; can be used to shrink the space for inline-block elements in a row */
+}
+
+/*
+    You can select classes with a (.) dot
+    You can select IDs with a (#) hash
+*/
+
+/*#boxes {*/
+/*    width: 800px;*/
+/*}*/
+
+/*.box {*/
+/*    width: 200px;*/
+/*    height: 200px;*/
+/*    background-color: peachpuff;*/
+
+    /*margin: 20px;*/
+/*    padding: 40px;*/
+/*    display: inline-block;*/
+/*    border: 10px solid burlywood;*/
+
+/*    float: left;*/
+/*}*/
+
+header {
+    width: 100%;
+    background: peachpuff;
+    font-size: 40px;
+    position: fixed;
+    top: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #777777;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: inline-block;
+    padding: 20px;
+}
+
+section {
+    margin-top: 90px;
+}
+
+.grid {
+    position: relative;
+}
+
+.img-wrapper {
+    position: relative;
+    /* parent elements must be set to relative when children
+    elements are relatively or absolutely positioned */
+}
+
+.img-wrapper img {
+    /* when using */
+    position: absolute;
+    right: 200px;
+}
+
+.viewport {
+    overflow-y: auto;
+    height: 400px;
+    width: 300px;
+
+    border: 1px solid #888;
+    margin: 0 auto;
+    /* in order to use overflow, you must set the height on the parent container */
+}

@@ -1,0 +1,99 @@
+.header {
+    max-width: 960px;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: peachpuff;
+}
+
+.nav-bar {
+    width: 100%;
+}
+
+.nav-bar li :hover {
+    color: aliceblue;
+}
+
+.nav-bar li {
+    text-align: center;
+    display: inline;
+    padding: 5px 50px;
+    font-size: 25px;
+    color: dimgrey;
+}
+
+body, html {
+    max-width: 960px;
+    width: 100%;
+    min-height: 1500px;
+    height: 100%;
+    background: linen;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+img:hover {
+    border: 3px solid aliceblue;
+}
+
+.placehold1 {
+    text-align: center;
+}
+
+.content p {
+    text-align: center;
+}
+
+.portfolio {
+    padding-left: 15px;
+    display: inline-block;
+}
+
+.page-content {
+    min-height: 400px;
+    height: 100%;
+    max-width: 960px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media queries go below other CSS*/
+@media (max-width:1176px) {
+    
+ul {
+    padding: 0px;
+}
+    
+.portfolio {
+    padding: 0px;
+}    
+    
+.nav-bar li {
+    text-align: left;
+    display: block;
+    padding: 0px 0px 0px 20px;
+    font-size: 25px;
+    color: dimgrey;
+}
+    
+body {
+    background: linen;
+}
+}

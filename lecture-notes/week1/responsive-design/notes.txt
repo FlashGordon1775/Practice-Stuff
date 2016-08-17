@@ -1,0 +1,40 @@
+Responsive Web Design
+    - Making your site look good on ANY device
+    - It's not just size, but device capabilities matter as well (caniuse.com)
+
+Devices
+    - Touch vs Mouse/keyboard interaction
+    - Size / Pixel density
+    - Speed / device capability / hardware
+    - Mobile browser quirks
+    - Accessibility ( alt text )
+    - Network speed
+    - File downloads
+
+Serving a different mobile site
+    - m.reddit.com / mobile.nytime.com
+    - Outdated!
+    - 2 code bases, 2x html, 2x css
+
+We need to make our CSS responsive
+    - media queries
+        - @media (min-width:600px) {}
+        - allow us to apply CSS based on different conditions
+    - Mobile first development
+        - developing your mobile site first!
+        - You can focus on giving the people that come to your site a robust and complete mobile experience
+            - Progressive enhancement
+                - As our device size grows, we can change the layout / add new UI elements
+                - Antithesis of Graceful Degradation
+
+CSS
+    - Units
+        - px    - fixed, least flexible unit in css
+        - %     - much more flexible than pixels, typically refer to parent elements
+        - em    - refer to the width of the 'm' character of the parent element - ratio.  2em => 2x width m
+        - rem   - refer to the width of the 'm' character of the html element - ratio. ems/rems are mostly used in padding / margin becuase they often look nice when spacing text
+        - vw    - are a % of the view width - the width of the browser window / viewable area. 100vw would be 100% of the view width in the browser
+        - vh    - are a % of the view height - the height of the window / viewable area
+        - in / cm  - might be interpreted in a janky way by most devices - work well for print css
+        
+

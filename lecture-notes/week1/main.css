@@ -1,0 +1,25 @@
+/*Selecting by element / tag */
+body {
+    background-color : burlywood;
+}
+/* Class selector */
+.archieBunker{
+    font-family : sans-serif;
+}
+
+/*ID selector */
+
+#super-div{
+    
+}
+
+/*Multi-class selector*/
+.something.else{
+    
+}
+
+/*Descendent selector*/
+
+.something .else{
+    
+}
