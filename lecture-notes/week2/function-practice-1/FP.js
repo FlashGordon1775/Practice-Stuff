@@ -65,3 +65,15 @@ function excite(word){
 }
 
 excite("word");
+
+///////////////////////////////////////////
+
+function sun(word){
+    return (word.indexOf('sun') != -1);
+}
+
+sun('sunday');
+sun('asunder');
+sun('day');
+
+/////////////////////////////////////////
