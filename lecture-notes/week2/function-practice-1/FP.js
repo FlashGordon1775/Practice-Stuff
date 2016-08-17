@@ -77,3 +77,25 @@ sun('asunder');
 sun('day');
 
 /////////////////////////////////////////
+
+function tiny(number){
+    if(number >= 0 && number <= 1){
+        return true;
+    }else{
+    return false;
+    }
+}
+
+tiny(2);
+
+//////////////////////////////////////////
+
+function getSeconds(time){
+    if(time.match(/^\d{2}\:\d{2}$/)){
+        var a = time.split(':');
+        var sec = parseInt(a[0])*60 + parseInt(a[1]);
+        console.log(sec + " sec");
+    }
+}
+
+getSeconds('01:30');
