@@ -1,7 +1,7 @@
 html {
     margin: 10px 0px;
     background-color: #7f8c8d;
-    margin: 0px 20px;;
+    /*margin: 0px 20px;*/
 }
 
 p {
@@ -151,3 +151,61 @@ button{
     color: #aaa;
 }
 
+input[type=text] {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+}
+
+.form-group {
+    text-align: right;
+    margin: 0px 20px;
+}
+
+.form-group label {
+    font-size: 13px;
+    display: inline-block;
+    vertical-align: middle;    
+}
+
+.form-group input {
+    height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    border-color: #ccc;
+}
+
+.comment-box #comment{
+    text-align: center;
+    width: 90%;
+    margin: 0px 30px 0px 30px;
+    height: 150px;
+}
+
+input[type="submit"]{
+    font-size: 15px;
+    color: white;
+    background-color: #c0392b;
+    border: none;
+    margin: 20px 30px 20px 30px;
+    width: 90%;
+    height: 40px;
+}
+.com-text, .user-pic {
+    vertical-align: top;
+    display: inline-block;
+    overflow: hidden;
+    padding: 5px 5px;
+    margin: 0px 20px;
+}
+
+.com-text p {
+    padding: 0px;
+}
+
+.user, .time{
+    text-justify: left;
+}
