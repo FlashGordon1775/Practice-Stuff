@@ -197,7 +197,7 @@ input[type="submit"]{
 .com-text, .user-pic {
     vertical-align: top;
     display: inline-block;
-    overflow: hidden;
+    /*overflow: hidden;*/
     padding: 5px 5px;
     margin: 0px 20px;
 }
@@ -206,6 +206,23 @@ input[type="submit"]{
     padding: 0px;
 }
 
-.user, .time{
+
+.user-pic {
+
+    width: 250px;
+    float: left;
+}
+
+.user{
+    vertical-align: top;
     text-justify: left;
+}
+
+.nested{
+    width: 90%;
+    margin: 0px 0px 0px 50px;
+}
+
+.time{
+    width: 50px;
 }
