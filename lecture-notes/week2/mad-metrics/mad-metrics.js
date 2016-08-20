@@ -1,0 +1,3 @@
+function dobutton(){
+    alert("Info");
+}
