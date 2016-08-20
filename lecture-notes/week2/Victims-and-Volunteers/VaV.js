@@ -19,7 +19,7 @@ victims();
 function victims(numberVictims){
     var numberVictims = prompt("How many victims are you reporting?");
     numberVictimsNumber = parseInt(numberVictims);
-    if(numberVictimsNumber > 0){
+    if(numberVictimsNumber >= 0){
         var i = numberVictimsNumber
         for(var i = 0; i < numberVictimsNumber; i++){
             //ask for things

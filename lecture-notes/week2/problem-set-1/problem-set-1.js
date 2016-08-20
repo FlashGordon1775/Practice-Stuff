@@ -23,6 +23,6 @@ function primeTime(value){
 		return ("false");
 	    } 
     }
-		return ("true");
+		return ('true');
 		}
 console.log(primeTime(106453));
