@@ -1,0 +1,18 @@
+button{
+    /*position: fixed;*/
+    text-align: center;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+}
+
+body {
+    margin: 300 auto;
+    text-align: center;
+    padding: 0% 15% 0% 0%;
+}
+
+section {
+    height: 500px;
+}

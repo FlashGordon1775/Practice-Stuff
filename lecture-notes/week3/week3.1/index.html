@@ -1,0 +1,22 @@
+<!DOTYPE html>
+<html ng-app="PracApp">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src='./angular-intro1.js'></script>
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="angular-intro1.css">
+    </head>
+    <body>
+        <div ng-controller="pushButton as cCtrl">
+            <button type="button" ng-click="cCtrl.onPush()">{{cCtrl.btnText}}</button>
+            <section><h1 ng-show="cCtrl.h1Text">{{cCtrl.h1Text}}</h1></section>
+        </div> 
+        <div ng-controller="Button2 as dCtrl">
+            <button type="button" ng-click="dCtrl.newPush()">{{dCtrl.b2Text}}</button>
+            <section><ul><li ng-repeat="item in dCtrl.list">{{item}}</li></ul></section>
+        </div>
+        <section></section>
+        <section></section>
+        <section></section>
+    </body>
+</html>
