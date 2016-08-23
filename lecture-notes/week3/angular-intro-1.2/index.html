@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="AngularIntro2" class="page-content">
+    <head>
+        <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Angular Intro Part 2</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="angular-intro2.js"></script>
+        <link rel="stylesheet" href="angular-intro2.css">
+    </head>
+    <body ng-controller="pinkMickey as cCtrl">
+        <header class="header">
+            <nav class="nav-bar">
+                <ul ng-controller="linkTo as eCtrl">
+                    <li ng-click="eCtrl.clickLink($event, 'answer1')"><a href="http://www.w3schools.com/html" ng-if="eCtrl.answer1">Home</a></li>
+                    <li ng-click="eCtrl.clickLink($event, 'answer2')"><a href="http://www.w3schools.com/html" ng-if="eCtrl.answer2">About</a></li>
+                    <li ng-click="eCtrl.clickLink($event, 'answer3')"><a href="http://www.w3schools.com/html" ng-if="eCtrl.answer3">Portfolio</a></li>
+                    <li ng-click="eCtrl.clickLink($event, 'answer4')"><a href="http://www.w3schools.com/html" ng-if="eCtrl.answer4">Blog</a></li>
+                    <li ng-click="eCtrl.clickLink($event, 'answer5')"><a href="http://www.w3schools.com/html" ng-if="eCtrl.answer5">Contact&nbsp;Us</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="placehold1">
+            <img src="http://placehold.it/900x400">
+        </div>
+        <div class="Content" ng-controller="Yell as dCtrl">
+            <h3 ng-mouseover="dCtrl.exclamation($event)">Taco Recipe</h2>
+            <p ng-mouseover="cCtrl.doMouseOver($event)" ng-mouseleave="cCtrl.doMouseOut($event)"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget est tempus, venenatis lectus et, suscipit augue. Proin posuere elementum diam id commodo. 
+                Suspendisse congue est nisl, eget iaculis leo aliquet vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                Cras venenatis porta metus, sed convallis libero pretium eu. Mauris at ligula eget sapien venenatis eleifend sed in nulla. Praesent id dolor nisi. 
+                Morbi consectetur interdum orci, sed fermentum turpis molestie id. Mauris ut felis luctus, sagittis mi a, laoreet sem. </p>
+                
+                <img src="http://placehold.it/400x200">
+
+            <h3 ng-mouseover="dCtrl.exclamation($event)">Beard Grooming Tips</h2>    
+            <p ng-mouseover="cCtrl.doMouseOver($event)" ng-mouseleave="cCtrl.doMouseOut($event)"> Quisque in mauris congue, vestibulum lorem a, consequat tellus. Nunc faucibus ut libero pretium porta.
+                Cras venenatis porta metus, sed convallis libero pretium eu. Mauris at ligula eget sapien venenatis eleifend sed in nulla. Praesent id dolor nisi. 
+                Morbi consectetur interdum orci, sed fermentum turpis molestie id. Mauris ut felis luctus, sagittis mi a, laoreet sem. </p>
+                
+                <img src="http://placehold.it/400x200">
+
+            <h3 ng-mouseover="dCtrl.exclamation($event)">T-Rex Funeral Traditions</h2>
+            <p ng-mouseover="cCtrl.doMouseOver($event)" ng-mouseleave="cCtrl.doMouseOut($event)"> Quisque in mauris congue, vestibulum lorem a, consequat tellus. Nunc faucibus ut libero pretium porta.
+                Cras venenatis porta metus, sed convallis libero pretium eu. Mauris at ligula eget sapien venenatis eleifend sed in nulla. Praesent id dolor nisi. 
+                Morbi consectetur interdum orci, sed fermentum turpis molestie id. Mauris ut felis luctus, sagittis mi a, laoreet sem. </p>
+        </div>
+        <div class="portfolio">
+            <img src="http://placehold.it/300x200">
+            <img src="http://placehold.it/300x200">
+            <img src="http://placehold.it/300x200">
+        </div>
+        <footer><p class="dim">Posted by: <span class="bold">Rob Gordon</span></p></footer>
+    </body>
+</html>
