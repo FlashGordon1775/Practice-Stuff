@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="SnackAttack">
+    <head>
+        <title>Angular Stuff!</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="angular-practice.js"></script>
+    </head>
+
+    <!-- controller AS syntax -->
+    <body ng-controller="cookieGram as cCtrl">
+        <h1>{{cCtrl.greeting}}</h1> <!-- You can actually call different methods on the $scope -->
+        <div>
+            Our Snacks :
+            <p>{{cCtrl.snacks}}</p>
+        </div>
+    </body>
+</html>
