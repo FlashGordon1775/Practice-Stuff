@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app="goldRush">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="Gold-rush.js"></script>
+        <link rel="stylesheet" href="Gold-rush.css">
+    </head>
+    <body>
+        <div class="bounding" ng-controller="Rush as cCtrl">
+            <img id="mappy"src="topo-co.jpg" alt="map" ng-click="cCtrl.addPoint($event)"/>
+            <div ng-repeat="point in cCtrl.array1 track by $index">
+                <img src="thumbtack2.png" class="point" style="left: {{ point.x }}; top: {{ point.y }};" ng-click="cCtrl.removePoint($index)"/>
+            </div>
+        </div>
+    </body>
+</html>
