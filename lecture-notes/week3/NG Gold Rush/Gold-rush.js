@@ -7,10 +7,10 @@ function rushController(){
     cCtrl.array1 = [];
 
     cCtrl.addPoint = function (event) {
-        console.log(event.clientY, window.innerHeight)
+        console.log(event)
         var location = {
-            x: event.clientX/document.getElementById("mappy").offsetWidth*100+"%",
-            y: event.clientY/document.getElementById("mappy").offsetHeight*100+"%",
+            x: event.pageX/document.getElementById("mappy").offsetWidth*100+"%",
+            y: event.pageY/document.getElementById("mappy").offsetHeight*100+"%",
         } 
         cCtrl.array1.push(location);
     }
