@@ -5,9 +5,24 @@
         <script src="intro-part3.js"></script>
         <link rel="stylesheet" href="intro-part3.css">
     </head>
-    <body ng-controller="popController">
-        <div>
-            <button ng-dialog="popController"class="button">I'm a GIANT Button!</button>
-        </div>
+    <body>
+        
     </body>
+    <body ng-controller="pop as cCtrl">
+        <section>
+            <button class="button" ng-click="cCtrl.clickme()">I'm a GIANT button!</button>
+            <div class="lightBox" ng-show="cCtrl.myVar" class="outer-div">
+                <div class="middle-div">
+                    <div class="inner-div">
+                        <p class="paragraph">Cupcake ipsum dolor sit amet. Gummies lemon drops pastry topping wypas jujubes gummi bears. Cotton candy powder topping bear claw halvah jelly beans bear claw. Chocolate cake ice cream gummies apple pie muffin wafer gummi bears. Cupcake ipsum dolor sit amet. Gummies lemon drops pastry topping wypas jujubes gummi bears. Cotton candy powder topping bear claw halvah jelly beans bear claw. Chocolate cake ice cream gummies apple pie muffin wafer gummi bears.</p>
+                        <div class="close"><button ng-click="cCtrl.clickme()">Close</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            
+        </section>	
+	</body>
 </html>
+

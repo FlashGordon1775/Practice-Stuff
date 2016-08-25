@@ -1,7 +1,35 @@
+body {
+    padding: 20% 40%;
+    height: 3000px;
+}
+
 .button{
-    margin: 20% 40%;
     padding: 90px;
     background-color: red;
     color: white;
     font-size: 30px;
 }
+
+.inner-div{
+    background: #666;
+    display: block;
+    position: fixed;
+    top: 30%;
+    width: 25%;
+    transform: translateY(-50%);
+    transform: translateX(-20%);
+    border-radius: 5%;
+    padding: 45px;
+}
+
+
+.paragraph {
+    text-align: center;
+}
+
+.close {
+    color: black;
+    text-align: right;
+    text-decoration: none;
+}
+

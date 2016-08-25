@@ -5,10 +5,10 @@ angular.module("Popup",[])
 function popController(){
     
     var cCtrl = this;
-
-    cCtrl.click = function(event){
-        var open = modals.open("alert");
-    }
-
-}
-
+    cCtrl.myVar = false;
+    
+    console.log('hello');
+    cCtrl.clickme = function(){
+        cCtrl.myVar = !cCtrl.myVar;
+    };
+};
