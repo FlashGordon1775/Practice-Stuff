@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="cardGen">
+  <head>
+    <script src="https://opensource.keycdn.com/angularjs/1.5.8/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <form ng-submit="fCtrl.addCard()" ng-controller="form as fCtrl">
+      <input type="text" placeholder="name" ng-model="fCtrl.newCard.name" />
+      <input type="text" placeholder="color"  ng-model="fCtrl.newCard.manaColor" />
+      <input type="number" placeholder="power"  ng-model="fCtrl.newCard.power" />
+      <input type="number" placeholder="toughness"  ng-model="fCtrl.newCard.toughness" />
+      <input type="text" placeholder="art URL"  ng-model="fCtrl.newCard.art" />
+      <button type="submit">Add Card</button>
+    </form>
+
+    <!--http://www.mcssl.com/TinyMCE/thumbnail.ashx?src=%2fcontent%2f233257%2fBlackLotus.jpg&size=500 -->
+    <ul ng-controller="gallery as gCtrl">
+      <li ng-repeat="card in gCtrl.cardList">
+        <h4>{{card.name}} - {{card.manaColor}}</h4>
+        <img ng-src="{{card.art}}" />
+        <span>{{card.power}}</span>
+        <span>{{card.toughness}}</span>
+      </li>
+    </ul>
+
+  </body>
+</html>
