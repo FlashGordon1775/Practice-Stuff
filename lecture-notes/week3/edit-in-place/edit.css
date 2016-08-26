@@ -1,0 +1,56 @@
+body {
+    height: 3000px;
+    margin: 2%;
+    background-color: linen;
+}
+
+.header {
+    opacity: 0.5;
+    position: fixed;
+    width: 95%;
+    height: 150px;
+    background-color: cadetblue;
+}
+
+.h-img {
+    width: 82%;
+    padding: 25px 0px 25px 200px;
+}
+
+.u-img {
+    /*margin-top: 150px;
+    margin-left: 150px;*/
+    position: fixed;
+    float: left;
+}
+
+.footer {
+    background-color: lavender;
+    opacity: 0.7;
+    width: 95%;
+    height: 75px;
+}
+
+.user-info {
+    opacity: 0.5;
+    width: 150px;
+    height: 100%;
+    position: fixed;
+    padding: 20px 10px;
+    background-color: cadetblue;
+}
+
+.user-info ul {
+    padding-top: 150px;
+    list-style: none;
+}
+
+.user-info li {
+    padding: 20px 0px;
+    font-size: 20px;
+    color: white;
+}
+
+.user-info li:hover {
+    color: burlywood;
+}
