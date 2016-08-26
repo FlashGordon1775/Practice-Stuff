@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="edit-in-place">
     <head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
         <script src="edit.js"></script>
-        <link rel="stylesheet" href="ttp://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="edit.css">
     </head>
     <body>
-        <header class="header"><img class="h-img"src="http://placehold.it/1200x100" alt=""></header>
+        <header class="header"></header>
         <section>
-            <nav class="user-info">
+            <nav class="user-info"><!-- Make this responsive. Hamburger menu on small screens. -->
                 <ul>
                     <li><a>Profile</a></li>
                     <li><a>About</a></li>
@@ -19,8 +18,27 @@
             </nav>
             <img class="u-img"src="http://placehold.it/170x150" alt="">
         </section>
-        <section>
-
+        <section class="content" >
+            <div ng-controller="edit as eCtrl"><!-- Hide this div when a paragraph is clicked, and display an input field OR hide the individual paragraphs that are clicked.-->
+                <p> 
+                    <a href="#" ng-click="eCtrl.myVar1 = !eCtrl.myVar1" ng-hide="eCtrl.myVar1" >
+                        {{eCtrl.p1Text}}
+                    </a>
+                    <textarea name="" id="input-box" cols="30" rows="10" ng-show="eCtrl.myVar1" ng-model="eCtrl.p1Text" ng-blur="eCtrl.myVar1 = !eCtrl.myVar1"></textarea>
+                </p>
+                <p> 
+                    <a href="#" ng-click="eCtrl.myVar2 = !eCtrl.myVar2" ng-hide="eCtrl.myVar2">
+                        {{eCtrl.p2Text}}
+                    </a>
+                    <textarea name="" id="input-box" cols="30" rows="10" ng-show="eCtrl.myVar2" ng-model="eCtrl.p2Text" ng-blur="eCtrl.myVar2 = !eCtrl.myVar2"></textarea>
+                </p>
+                <p>
+                    <a href="#" ng-click="eCtrl.myVar3 = !eCtrl.myVar3" ng-hide="eCtrl.myVar3">
+                        {{eCtrl.p3Text}}
+                    </a>
+                    <textarea name="" id="input-box" cols="30" rows="10" ng-show="eCtrl.myVar3" ng-model="eCtrl.p3Text" ng-blur="eCtrl.myVar3 = !eCtrl.myVar3"></textarea>
+                </p>
+            </div>
         </section>
     </body>
 </html>
