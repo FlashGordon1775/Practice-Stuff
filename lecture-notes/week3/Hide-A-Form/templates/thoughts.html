@@ -1,0 +1,22 @@
+    <section class="content" >
+            <div ng-controller="edit as eCtrl"><!-- Hide this div when a paragraph is clicked, and display an input field OR hide the individual paragraphs that are clicked.-->
+                <p> 
+                    <a ng-click="eCtrl.myVar1 = !eCtrl.myVar1" ng-hide="eCtrl.myVar1" >
+                        {{eCtrl.p1Text}}
+                    </a>
+                    <textarea name="" id="input-box" cols="30" rows="10" ng-show="eCtrl.myVar1" ng-model="eCtrl.p1Text" ng-blur="eCtrl.myVar1 = !eCtrl.myVar1"></textarea>
+                </p>
+                <p> 
+                    <a ng-click="eCtrl.myVar2 = !eCtrl.myVar2" ng-hide="eCtrl.myVar2">
+                        {{eCtrl.p2Text}}
+                    </a>
+                    <textarea name="" id="input-box" cols="30" rows="10" ng-show="eCtrl.myVar2" ng-model="eCtrl.p2Text" ng-blur="eCtrl.myVar2 = !eCtrl.myVar2"></textarea>
+                </p>
+                <p>
+                    <a ng-click="eCtrl.myVar3 = !eCtrl.myVar3" ng-hide="eCtrl.myVar3">
+                        {{eCtrl.p3Text}}
+                    </a>
+                    <textarea name="" id="input-box" cols="30" rows="10" ng-show="eCtrl.myVar3" ng-model="eCtrl.p3Text" ng-blur="eCtrl.myVar3 = !eCtrl.myVar3"></textarea>
+                </p>
+            </div>
+        </section>

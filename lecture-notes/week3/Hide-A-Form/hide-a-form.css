@@ -1,0 +1,111 @@
+body {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 0px;
+    background-color: linen;
+}
+
+header {
+    opacity: .5;
+    position: fixed;
+    width: 95%;
+    height: 150px;
+    background-color: cadetblue;
+}
+
+/*.h-img {
+    width: 80%;
+    padding: 25px 0px 25px 200px;
+}*/
+
+.u-img {
+    /*margin-top: 150px;
+    margin-left: 150px;*/
+    position: fixed;
+    /*float: left;*/
+}
+
+.footer {
+    background-color: lavender;
+    opacity: 0.7;
+    width: 95%;
+    height: 75px;
+}
+
+.user-info {
+    opacity: 0.5;
+    width: 150px;
+    height: 100%;
+    position: fixed;
+    padding: 20px 10px;
+    background-color: cadetblue;
+    list-style: none;
+}
+
+.user-info ul {
+    padding-top: 150px;
+    list-style: none;
+    text-decoration: none;
+}
+
+.user-info a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.user-info li {
+    padding: 20px 0px;
+}
+
+
+
+.user-info a:hover {
+    color: burlywood;
+}
+
+.content {
+    width: 70%;
+    height: 100%;
+    margin-left: 20%;
+    padding-top: 170px;
+}
+
+.content p {
+    padding: 10px 20px;
+    background-color: white;
+    margin: 0px;
+}
+
+.content a {
+    text-decoration: none;
+    color: black;
+}
+
+#input-box {
+    width: 100%;
+}
+
+.form {
+    width: 70%;
+    height: 100%;
+    margin-left: 20%;
+    padding-top: 170px;
+    /*visibility: collapse;*/
+}
+
+.form input {
+    width: 40%;
+    margin-bottom: 5px;
+}
+
+.profile-info {
+    width: 70%;
+    height: 100%;
+    margin-left: 20%;
+    padding-top: 150px;
+}
+
+.form-button {
+    
+}

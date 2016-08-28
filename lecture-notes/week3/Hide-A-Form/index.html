@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="hidden-form">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+        <script src="hide-a-form.js"></script>
+        <link rel="stylesheet" href="hide-a-form.css">
+    </head>
+    <body>
+        <header class="header"></header>
+        <section>
+            <nav class="user-info"><!-- Make this responsive. Hamburger menu on small screens. -->
+                <ul>
+                    <li><a href="#/">Home</a></li>
+                    <li><a href="#/profile">Profile</a></li>
+                    <li><a href="#/thoughts">Thoughts</a></li>
+                    <li><a>Gallery</a></li>
+                    <li><a>Contacts</a></li>
+                </ul>
+            </nav>
+            <img class="u-img" src="http://placehold.it/170x150" alt="">
+        </section>
+
+        <ng-view>
+
+        </ng-view>
+    </body>
+</html>

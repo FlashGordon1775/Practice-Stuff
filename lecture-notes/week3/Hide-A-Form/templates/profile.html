@@ -1,0 +1,21 @@
+<section ng-controller="form as fCtrl">
+    <div>
+        <form class="form" ng-show="fCtrl.myVar1 == true">
+            <input type="text" placeholder="name" ng-model="fCtrl.nameText">
+            <textarea name="" id="input-box" cols="30" rows="10" placeholder="bio" ng-model="fCtrl.bioText"></textarea>
+            <textarea name="" id="input-box" cols="30" rows="10" placeholder="favorite books" ng-model="fCtrl.booksText"></textarea>
+            <textarea name="" id="input-box" cols="30" rows="10" placeholder="favorite javascript libraries" ng-model="fCtrl.librariesText"></textarea>
+            <button type="submit" class="form-button" ng-click="fCtrl.updateProfile()">Close</button>
+        </form>
+    </div>
+    <div class="profile-info">
+        <h3> {{ fCtrl.nameText }} </h3>
+        <h5>BIO</h5>
+        <p> {{ fCtrl.bioText }} </p>
+        <h5>Favorite Books</h5>
+        <p> {{ fCtrl.booksText }} </p>
+        <h5>Favorite JS Libraries</h5>
+        <p> {{ fCtrl.librariesText }} </p>
+        <button type="submit" class="form-button" ng-click="fCtrl.updateProfile()">Edit</button>
+    </div>
+</section>
