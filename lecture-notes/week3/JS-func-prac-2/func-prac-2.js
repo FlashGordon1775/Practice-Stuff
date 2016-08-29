@@ -79,8 +79,28 @@ var obj1 = {
 }
 
 function printObject () {
-    console.log(Object.keys[0] + ' is ' + obj1.firstName); //ask for help
-    console.log(obj1[1] + ' is ' + obj1.lastName);
+    var key = Object.keys(obj1);
+    console.log(key[0] + ' is ' + obj1.firstName); 
+    console.log(key[1] + ' is ' + obj1.lastName);
 }
 
 printObject();
+
+//Write a function called 'vowels' which takes a string and returns an array of all the vowels in the string, including duplicates.
+//vowels('alabama') should return ['a', 'a', 'a', 'a']
+//vowels('What evil odd ducks!') should return ['a', 'e', 'i', 'o', 'u']
+
+var str = "Colorado";
+
+function vowels (str) {
+    
+    var string = str.toString();
+    for (var i = 0; i < string.length - 1; i++){
+        if(string.charAt(i) == 'a' || string.charAt(i) == 'e' || string.charAt(i) == 'i' || string.charAt(i) == 'o' || string.charAt(i) == 'u'){
+        
+        }
+    }                       //WTF?
+}
+
+vowels('Colorado'); ////////////// Get help
+
