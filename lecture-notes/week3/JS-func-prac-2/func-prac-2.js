@@ -92,15 +92,68 @@ printObject();
 
 var str = "Colorado";
 
+var vowelList = [];
+
 function vowels (str) {
+
     
-    var string = str.toString();
-    for (var i = 0; i < string.length - 1; i++){
-        if(string.charAt(i) == 'a' || string.charAt(i) == 'e' || string.charAt(i) == 'i' || string.charAt(i) == 'o' || string.charAt(i) == 'u'){
-        
+    for (var i = 0; i < str.length; i++){
+        if(str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u'){
+         vowelList.push(str.charAt(i));
         }
-    }                       //WTF?
+    } return vowelList;
 }
 
-vowels('Colorado'); ////////////// Get help
+vowels('Colorado');
+console.log(vowelList);
+//Write a function called 'twins' which takes an array and returns true if every adjacent pair of items in the array is the same.
+//twins(['a', 'a', 'b', 'b', 'c', 'c']) should return true
+//twins(['a', 'a', 'b', 'c', 'd', 'd']) should return false
+//twins(['a', 'a', 'b', 'z']) should return false
+//twins(['a', 'a', undefined]) should return false
 
+var array3 = ['a', 'a', 'b', 'b', 'c', 'c', '7', 'z'];
+
+function twins (array3) {
+    
+    for (var i = 0; i < array3.length; i+=2){
+        if (array3[i] !== array3[i+1]){
+            return false;
+        }
+    }return true;
+}
+
+twins(array3);
+console.log(twins(array3));
+//Write a function called 'or' which takes an array of booleans and returns true if any one of them is true. Given an empty array, return false. If you find an item that is true, the function should return true immediately and not continue checking further values.
+//or([false, false, true, false]) should return true
+//or([false, false, false]) should return false
+//or([]) should return false
+
+var array4 = [true, false, true];
+
+function or (array4) {
+    for (var i = 0; i < array4.length; i++){
+        if(array4[i] == true){
+            return true;
+        }
+    }return false;
+} 
+
+or(array4);
+console.log(or(array4));
+//Write a function called 'unique' which takes an array of strings, and returns a new array consisting of the unique values (no duplicates).
+//unique(['a', 'b', 'a', 'c', 'd', 'd']) should return ['a', 'b', 'c', 'd']
+//unique(['todd', 'avery', 'maria', 'avery']) should return ['todd', 'avery', 'maria']
+
+var array5 = ['avery', 'a', 'b', 'b', 'c', 'd', 'avery'];
+
+function unique (array5) {
+    return array5.sort().filter(function(item, pos, ary) {
+        return !pos || item != ary[pos-1];
+        })
+    } 
+
+
+unique(array5)
+console.log(unique(array5));
