@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="Chuck">
+<title>Chuck Norris</title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="chuck.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="chuck.css" rel="stylesheet"/>
+</head>
+
+
+<body ng-controller="chuckQuote as qCtrl">
+    <div class="jumbotron">
+        <h1 class="text-center">Go Chuck Yourself!</h1>
+    </div>
+    <form class="form-inline">
+        <!-- <div class="form-group" class="row">
+                <button type="submit" class="btn btn-default btn-lg">Chinstrap</button>
+                <button type="submit" class="btn btn-default btn-lg">Patches</button>
+                <button type="submit" class="btn btn-default btn-lg">Beard</button>
+                <button type="submit" class="btn btn-default btn-lg">#TEAMJohn</button>
+        </div> -->
+
+    </form>
+        <form class="form-inline">
+            <div class="form-group" class="row">
+                    <button ng-click="qCtrl.testAPI()" type="submit" class="btn btn-default btn-lg">Do it for Harambe!</button>
+                    <button ng-click="qCtrl.testAPI()" type="submit" class="btn btn-default btn-lg">What that Fart Do?</button>
+                    <button ng-click="qCtrl.testAPI()" type="submit" class="btn btn-default btn-lg">Porkymans' GO!</button>
+                    <button ng-click="qCtrl.testAPI()" type="submit" class="btn btn-default btn-lg">Somebody call Jethro?</button>
+                    <button ng-click="qCtrl.testAPI()" type="submit" class="btn btn-default btn-lg">Kickstart your Day Now!</button>
+            </div>
+        </form>
+
+    <section class="text-center">
+        <h1>{{qCtrl.jokeData.value.joke}}</h1>
+    </section>
+</body>
+</html>

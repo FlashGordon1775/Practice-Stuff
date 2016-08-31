@@ -1,0 +1,50 @@
+.jumbotron{
+    background-color:transparent;
+    color: white;
+}
+
+html body{
+    background-image: url("http://wallpapercave.com/wp/uCtCeTs.jpg");
+    background-size: 100%;
+}
+
+form {
+    text-align: center;
+    /*margin-top: 10%;*/
+    /*margin-left: 23%;
+    margin-right:25%;*/
+    width: 100%;
+}
+
+section{
+    margin-top:20%;
+    color: white;
+}
+
+.btn{
+    background: alpinewhite;
+    color:forestgreen;
+
+}
+
+form {
+
+}@media (max-width: 675px) {
+
+.search {
+    display: hidden;
+    margin-left: 30%;
+    align-content: center;
+}
+
+}
+
+@media (max-width:1180px) {
+
+html body {
+    background-color: seagreen;
+    background-image: url(none);
+    }
+
+}
+
