@@ -1,0 +1,16 @@
+<DOCTYPE html>
+    <html ng-app='Chuck'>
+        <head>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+            <script src="chuck.js"></script>
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" href="chuck.css">
+        </head>
+        <body ng-controller='chuckQuote as qCtrl'>
+            <button ng-click="qCtrl.testAPI()">Test</button>
+            <div>
+                <div>{{qCtrl.jokeData.value.joke}}</div>
+                <!--<div ng-bind-html = "qCtrl.jokeData.value.joke"></div>-->
+            </div>
+        </body>
+    </html>
