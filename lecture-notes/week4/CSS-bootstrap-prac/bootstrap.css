@@ -1,0 +1,54 @@
+body {
+    margin: 0px;
+}
+
+.nav-bar {
+    padding: 2px 0px;
+    background-color: black;
+    position: fixed-top;
+}
+
+.nav-bar ul {
+    padding: 0 0 0 15%;
+}
+
+.nav-bar li {
+    display: inline;
+    padding: 0px 10px;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+.nav-bar li :hover {
+    color: white;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: gray;
+}
+
+.content {
+    text-align: center;
+    margin: auto;
+}
+
+.title {
+    font-size: 36px;
+    font-family: sans-serif;
+    margin-bottom: 0px; 
+}
+
+.content-div {
+    padding: 10px 10px 20px 10px;
+}
+
+.content-div h1{
+    padding-top: 20px;
+}
+
+.content-div p {
+    font-size: 20px;
+    font-weight: 300;
+    font-family: sans-serif;
+}
