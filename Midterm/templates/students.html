@@ -1,0 +1,20 @@
+<section ng-controller="students as sCtrl" class="background">
+    <div>
+        <form class="form" ng-show="sCtrl.myVar1 == true">
+            <input type="text" placeholder="name" ng-model="sCtrl.nameText">
+            <textarea name="" id="input-box" cols="30" rows="10" placeholder="bio" ng-model="sCtrl.bioText"></textarea>
+            <textarea name="" id="input-box" cols="30" rows="10" placeholder="goals" ng-model="sCtrl.goalsText"></textarea>
+            <button type="submit" class="form-button" ng-click="sCtrl.updateProfile()">Close</button>
+        </form>
+    </div>
+    <div class="profile-info">
+        <div class="info">
+            <h3> {{ sCtrl.nameText }} </h3>
+            <h5>BIO</h5>
+            <p> {{ sCtrl.bioText }} </p>
+            <h5>Goals</h5>
+            <p> {{ sCtrl.goalsText }} </p>
+            <button type="submit" class="form-button" ng-click="sCtrl.updateProfile()">Edit</button>
+        </div>
+    </div>
+</section>

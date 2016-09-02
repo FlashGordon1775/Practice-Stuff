@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="buckleDown">
+    <head>
+        <title>BuckleDown</title>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+        <script src='main.js'></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <section>
+            <header>
+                <nav class="nav-bar">
+                    <ul>
+                        <li><a href="#/home">Home</a></li>
+                        <input class="search right-nav" type="text" placeholder="search">
+                    </ul>
+                </nav>
+            </header>       
+        </section>
+        
+        <ng-view>
+
+        </ng-view>
+    </body>
+</html>
