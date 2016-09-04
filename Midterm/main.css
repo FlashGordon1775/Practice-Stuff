@@ -1,7 +1,23 @@
 body {
     margin: 0;
     background-image: url(http://adhoc911.com/wp-content/uploads/2015/03/07a.jpg);
-    height: 800px;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
+/*#page-about {
+    margin: 0;
+    background-image: url(http://az616578.vo.msecnd.net/files/2016/06/10/636011804533596877279417241_o-SUCCESS-facebook-3.jpg);
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+}*/
+
+.back {
+    width: 100%;
 }
 
 header {
@@ -9,6 +25,7 @@ header {
     height: 70px;
     background-color: black;
     padding: 20px;
+    position: fixed;
 }
 
 .nav-bar a {
@@ -52,13 +69,14 @@ header {
 }
 
 .buttons {
-    position: fixed; /* or absolute */
-    top: 70%;
-    left: 40%;
+    /*position: fixed; /* or absolute */
+    /*top: 60%;
+    left: 40%;*/
     padding: 0;
 }
 
 .buttons li{
+    margin: 15px;
     padding-top: 50%;
     display: inline;
 }
@@ -105,11 +123,15 @@ header {
     margin-bottom: 5px;
 }
 
+.form-button {
+    color: black;
+}
+
 .profile-info {
     width: 70%;
     height: 80%;
     margin-left: 15%;
-    padding: 150px 0px 150px 0px;
+    padding: 150px 0px 50px 0px;
 }
 
 .info {
@@ -118,3 +140,29 @@ header {
     opacity: .6;
     padding: 30px 5px;
 }
+
+.text-center {
+    margin-top: 10%;
+    color: black;
+}
+
+.fb-comments {
+    /*width: 70%;*/
+    /*height: 80%;*/
+    margin-left: 15%;
+    padding: 10px 0px;
+    background-color: black;
+    opacity: .6;
+    color: white;
+}
+
+/*.about-content {
+    position: relative;
+}
+
+.ng-view {
+    width: 2000px;
+    height: 1000px;
+    max-width: 2000px;
+    max-height: 1000px;
+}*/

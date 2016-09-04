@@ -9,19 +9,44 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
+        <!--<div id="fb-root"></div>
+            <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+                fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>-->
         <section>
             <header>
-                <nav class="nav-bar">
+                <nav class="nav-bar buttons">
                     <ul>
                         <li><a href="#/home">Home</a></li>
+                        <li><button class="btn"><a href="#/about">About</a></button></li>
+                        <li><button class="btn"><a href="#/students">Students</a></button></li>
+                        <li><button class="btn"><a href="#/mentors">Mentors</a></button></li>
                         <input class="search right-nav" type="text" placeholder="search">
                     </ul>
                 </nav>
-            </header>       
+            </header>
+                 
         </section>
-        
-        <ng-view>
+        <!--<section>
+            <div>
+                <ul class="buttons">
+                    <li><button class="btn"><a href="#/students">Students</a></button></li>
+                    <li><button class="btn"><a href="#/mentors">Mentors</a></button></li>
+                </ul>
+            </div>
+        </section>-->
+        <!--<section ng-controller="quotes as qCtrl" class="text-center">
+            <h1>{{qCtrl.quoteData.value.joke}}</h1>
+        </section>-->
+        <section class="ng-view">
+            <ng-view>
 
-        </ng-view>
+            </ng-view>
+        </section>
     </body>
 </html>
