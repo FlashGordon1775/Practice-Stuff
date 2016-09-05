@@ -4,8 +4,19 @@ angular.module("buckleDown", ["ngRoute"])
      /*.controller("quotes", 
      quoteController)*/
      .controller("mentors", 
-    mentorController)
+     mentorController)
+    .controller("newStudent",
+     newStudentController)
+    .controller("newMentor",
+     newMentorController)
+    .factory("SFactory", studentFactory)
+    .factory("MFactory", mentorFactory)
     .config(Router);
+
+studentController.$inject = ["SFactory", "$timeout"]
+mentorController.$inject = ["MFactory", "$timeout"]
+
+Router.$inject = ["$routeProvider"];
 
 (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -41,6 +52,10 @@ function Router ($routeProvider){
         .when("/mentors", {
             templateUrl: "templates/mentors.html",
             controller: "mentors as mCtrl"
+        })
+        .when("/signup", {
+            templateUrl: "templates/signup.html", 
+            //controller: "newStudent as nSCtrl"     //?How do I get multiple controllers here??????????
         });
 }
 
@@ -81,6 +96,32 @@ function studentController () {
 
     }
     
+    /*sCtrl.student = SFactory.studentList; //This and the following function should be put in a new controller for creating new students.
+
+    $timeout(function(){
+        sCtrl.student.push({
+            name: "Craig",
+            bio: "yakity yakity kitty",
+            goals: "blu blu blah",
+        });
+    }, 5000);*/
+
+};
+
+function newStudentController (SFactory, $timeout){ //Make form for new student info
+    var nSCtrl = this;
+
+    nSCtrl.NSvar = false;
+
+    nSCtrl.student = SFactory.studentList;
+
+    $timeout(function(){
+        nSCtrl.student.push({
+            name: "Craig",
+            bio: "yakity yakity kitty",
+            goals: "blu blu blah",
+        });
+    }, 5000);
 };
 
 function mentorController () {
@@ -103,6 +144,78 @@ function mentorController () {
 
     console.log('hello');
 
+   /* mCtrl.mentor = MFactory.mentorList //This and the following function should be put in a new controller for creating new mentors.
+
+    $timeout(function(){
+        mCtrl.mentor.push({
+            name: "Jim",
+            bio: "sssssshshsshhshshsh",
+            qualificaions: "ermergerd",
+        });
+    }, 5000);*/
+
     }
     
 };
+
+function newMentorController (MFactory, $timeout) { //Make form for new mentor info
+
+    nMCtrl.mentor = MFactory.mentorList
+
+    $timeout(function (){
+        nMCtrl.mentor.push({
+            name: "Jim",
+            bio: "sssssshshsshhshshsh",
+            qualificaions: "ermergerd",
+        });
+    }, 5000);
+}
+
+function studentFactory () {
+
+
+    var studentList = [
+
+        {
+            name:   "Bob",
+            bio:    "yak yak yak",
+            goals:  "blah blah blah",
+        },
+        {
+            name:  "Jenn",
+            bio:   "gah gah gah",
+            goals: "ipsum stuff",
+        }
+
+        
+        
+    ];
+
+    return {
+
+        studentList : studentList,
+
+    }
+
+}
+
+function mentorFactory () {
+
+    var mentorList = [
+
+        {
+            name: "Rob",
+            bio: "yada yak blah",
+            qualificaions: "more ipsum stuff",
+        }
+
+
+    ];
+
+    return {
+
+        mentorList : mentorList,
+
+    }
+
+}

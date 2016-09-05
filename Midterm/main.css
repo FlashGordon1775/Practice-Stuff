@@ -25,7 +25,7 @@ header {
     height: 70px;
     background-color: black;
     padding: 20px;
-    position: fixed;
+    position: relative;
 }
 
 .nav-bar a {
@@ -36,7 +36,7 @@ header {
 }
 
 .nav-bar {
-    position: fixed;
+    /*position: fixed;*/
     padding: 0px 50px;
     width: 100%;
 }
@@ -156,11 +156,18 @@ header {
     color: white;
 }
 
-/*.about-content {
+.about-content {
     position: relative;
 }
 
-.ng-view {
+h2 {
+    position: absolute; 
+    top: 50px; 
+    left: 70px; 
+    width: 100%;
+}
+
+/*.ng-view {
     width: 2000px;
     height: 1000px;
     max-width: 2000px;

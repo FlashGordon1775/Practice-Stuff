@@ -1,0 +1,11 @@
+<section>
+    <h3>New Student</h3>
+    <div ng-controller="newStudent as nSCtrl">
+        <form class="form" ng-show="nSCtrl.NSvar == false">
+            <input type="text" placeholder="name">
+            <textarea name="" id="input-box" cols="30" rows="10" placeholder="bio"></textarea>
+            <textarea name="" id="input-box" cols="30" rows="10" placeholder="goals"></textarea>
+            <button type="submit" class="form-button" ng-click="nSCtrl.$timeout()">Submit</button>
+        </form>
+    </div>
+</section>
