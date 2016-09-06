@@ -3,28 +3,46 @@ angular.module("buckleDown", ["ngRoute"])
      studentController)
      /*.controller("quotes", 
      quoteController)*/
-     .controller("mentors", 
+    .controller("mentors", 
      mentorController)
     .controller("newStudent",
      newStudentController)
     .controller("newMentor",
      newMentorController)
+    .controller("signup",
+     signupController)
+    .controller("face", 
+     facebookController)
     .factory("SFactory", studentFactory)
     .factory("MFactory", mentorFactory)
     .config(Router);
 
-studentController.$inject = ["SFactory", "$timeout"]
-mentorController.$inject = ["MFactory", "$timeout"]
+studentController.$inject = ["SFactory"]
+//newStudentController.$inject = ["SFactory"]
+mentorController.$inject = ["MFactory"]
+//newMentorController.$inject = ["MFactory"]
 
 Router.$inject = ["$routeProvider"];
 
-(function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
+
+function facebookController(){
+    var fCtrl = this;
+    fCtrl.init = function (s, id) {
+                if(window.FB) {
+                    window.FB._initialized = false;
+                    return window.FB.XFBML.parse()
+                }
+                var js;                
+                if (document.getElementById(id)) {document.getElementById(id).remove()};
+                var fjs = document.getElementsByTagName(s)[0];
+
+                js = document.createElement(s); js.id = id;
                 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
                 fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));
+                console.log(js, fjs);
+                
+                };
+}
 
 Router.$inject = ["$routeProvider"];
 
@@ -55,7 +73,7 @@ function Router ($routeProvider){
         })
         .when("/signup", {
             templateUrl: "templates/signup.html", 
-            //controller: "newStudent as nSCtrl"     //?How do I get multiple controllers here??????????
+            controller: "signup as signupCtrl"     //?How do I get multiple controllers here??????????
         });
 }
 
@@ -108,22 +126,6 @@ function studentController () {
 
 };
 
-function newStudentController (SFactory, $timeout){ //Make form for new student info
-    var nSCtrl = this;
-
-    nSCtrl.NSvar = false;
-
-    nSCtrl.student = SFactory.studentList;
-
-    $timeout(function(){
-        nSCtrl.student.push({
-            name: "Craig",
-            bio: "yakity yakity kitty",
-            goals: "blu blu blah",
-        });
-    }, 5000);
-};
-
 function mentorController () {
 
     var mCtrl = this;
@@ -157,19 +159,69 @@ function mentorController () {
     }
     
 };
+function signupController(){}
 
-function newMentorController (MFactory, $timeout) { //Make form for new mentor info
+function newStudentController (SFactory){ //Make form for new student info
+    var nSCtrl = this;
 
-    nMCtrl.mentor = MFactory.mentorList
+    console.log(SFactory);
+    //nSCtrl.studentList = SFactory.studentList;
+    nSCtrl.newStudentObject = {
+                        name: '',
+                        bio: '',
+                        goals: '',
+                    }
 
-    $timeout(function (){
-        nMCtrl.mentor.push({
-            name: "Jim",
-            bio: "sssssshshsshhshshsh",
-            qualificaions: "ermergerd",
-        });
-    }, 5000);
+    nSCtrl.studentArray = JSON.parse(localStorage.getItem('studentArray')) || [];
+
+    nSCtrl.addStudent = function (){
+        /*for (var i =0; i < nSCtrl.studentList.length; i++){
+        nSCtrl.studentList.push({
+             
+        });}
+        console.log(nSCtrl.studentList);*/
+        SFactory.addStudent(nSCtrl.newStudentObject);
+        nSCtrl.studentArray.push(nSCtrl.newStudentObject); 
+        localStorage.setItem('studentArray', JSON.stringify(nSCtrl.studentArray));
+        nSCtrl.newStudentObject = {
+                        name: '',
+                        bio: '',
+                        goals: '',
+                    }
+        console.log('Hello from ', nSCtrl.newStudentObject);
+        console.log('my students ', SFactory.getStudents());
+    }
 }
+
+function newMentorController (MFactory) { //Make form for new mentor info
+    var nMCtrl = this;
+
+    console.log(MFactory);
+
+    nMCtrl.newMentorObject = {
+                            name: '',
+                            bio: '',
+                            qualificaions: '',
+                        }
+    nMCtrl.addMentor = function (){
+        // nMCtrl.mentorList.push({
+        //     name: "Jim",
+        //     bio: "sssssshshsshhshshsh",
+        //     qualificaions: "ermergerd",
+        MFactory.addMentor(nMCtrl.newMentorObject);
+        nMCtrl.mentorArray.push(nMCtrl.newMentorObject); 
+        localStorage.setItem('mentorArray', JSON.stringify(nMCtrl.mentorArray));
+        nSMtrl.newMentorObject = {
+                        name: '',
+                        bio: '',
+                        qualificaions: '',
+                    }
+        console.log('Hello from ', nMCtrl.newMentorObject);
+        console.log('mentors ', MFactory.getMentors());
+        }
+    }
+
+
 
 function studentFactory () {
 
@@ -191,9 +243,21 @@ function studentFactory () {
         
     ];
 
+    var addStudent = function (student){
+        console.log('Hey ', student);
+        studentList.push(student);
+        console.log('Yo ', studentList);
+    }
+
+    var getStudents = function(){
+        return studentList;
+
+    }
+
     return {
 
-        studentList : studentList,
+        addStudent : addStudent,
+        getStudents : getStudents,
 
     }
 
@@ -212,9 +276,21 @@ function mentorFactory () {
 
     ];
 
+    var addMentor = function (mentor){
+        console.log('Heck yes ', mentor);
+        studentList.push(student);
+        console.log('Yolo ', mentorList);
+    }
+
+    var getMentors = function(){
+        return mentorList;
+
+    }
+
     return {
 
-        mentorList : mentorList,
+        addMentor : addMentor,
+        getMentors : getMentors,
 
     }
 

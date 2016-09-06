@@ -118,6 +118,13 @@ header {
     /*visibility: collapse;*/
 }
 
+.signup-form {
+    width: 70%;
+    height: 100%;
+    margin-left: 20%;
+    padding-top: 50px;
+}
+
 .form input {
     width: 40%;
     margin-bottom: 5px;
@@ -173,3 +180,12 @@ h2 {
     max-width: 2000px;
     max-height: 1000px;
 }*/
+
+.new-user {
+    margin-left: 20%;
+    color: white;
+}
+
+img {
+    width: 100%;
+}

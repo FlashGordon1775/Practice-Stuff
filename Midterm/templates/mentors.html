@@ -1,4 +1,4 @@
-<section ng-controller="mentors as mCtrl" class="background">
+<section class="background">
     <div>
         <form class="form" ng-show="mCtrl.myVar1 == true">
             <input type="text" placeholder="name" ng-model="mCtrl.nameText">
@@ -17,5 +17,5 @@
             <button type="submit" class="form-button" ng-click="mCtrl.updateProfile()">Edit</button>
         </div>
     </div>
-    <div class="fb-comments" data-href="http://localhost:8080/?#/mentors" data-width="70%" data-numposts="5" data-colorscheme="dark"></div>
+    <div class="fb-comments" data-href="http://localhost:8080/?#/mentors" data-width="70%" data-numposts="5" data-colorscheme="dark" ng-init="fCtrl.init('script', 'facebook-jssdk')"></div>
 </section>
