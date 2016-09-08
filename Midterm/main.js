@@ -73,7 +73,7 @@ function Router ($routeProvider){
         })
         .when("/signup", {
             templateUrl: "templates/signup.html", 
-            controller: "signup as signupCtrl"     //?How do I get multiple controllers here??????????
+            controller: "signup as signupCtrl"     
         });
 }
 
@@ -144,18 +144,9 @@ function mentorController () {
         mCtrl.myVar1 = !mCtrl.myVar1;
         console.log('hi');
 
-    console.log('hello');
-
-   /* mCtrl.mentor = MFactory.mentorList //This and the following function should be put in a new controller for creating new mentors.
-
-    $timeout(function(){
-        mCtrl.mentor.push({
-            name: "Jim",
-            bio: "sssssshshsshhshshsh",
-            qualificaions: "ermergerd",
-        });
-    }, 5000);*/
-
+    console.log('hello'); 
+    /*I need to make the updates to the user profiles permanent. 
+    Figure out how to do this in localStorage for now. */
     }
     
 };
@@ -164,6 +155,8 @@ function signupController(){}
 function newStudentController (SFactory){ //Make form for new student info
     var nSCtrl = this;
 
+    nSCtrl.myVar = false;
+
     console.log(SFactory);
     //nSCtrl.studentList = SFactory.studentList;
     nSCtrl.newStudentObject = {
@@ -171,6 +164,12 @@ function newStudentController (SFactory){ //Make form for new student info
                         bio: '',
                         goals: '',
                     }
+
+    nSCtrl.newStudent = function(){
+        nSCtrl.myVar = !nSCtrl.myVar;
+        console.log('hi');
+    }
+
 
     nSCtrl.studentArray = JSON.parse(localStorage.getItem('studentArray')) || [];
 
@@ -196,6 +195,8 @@ function newStudentController (SFactory){ //Make form for new student info
 function newMentorController (MFactory) { //Make form for new mentor info
     var nMCtrl = this;
 
+    nMCtrl.myVar = false;
+
     console.log(MFactory);
 
     nMCtrl.newMentorObject = {
@@ -203,6 +204,14 @@ function newMentorController (MFactory) { //Make form for new mentor info
                             bio: '',
                             qualificaions: '',
                         }
+
+    nMCtrl.newMentor = function(){
+        nMCtrl.myVar = !nMCtrl.myVar;
+        console.log('hi');
+    }
+
+    nMCtrl.mentorArray = JSON.parse(localStorage.getItem('mentorArray')) || [];
+
     nMCtrl.addMentor = function (){
         // nMCtrl.mentorList.push({
         //     name: "Jim",
@@ -211,11 +220,12 @@ function newMentorController (MFactory) { //Make form for new mentor info
         MFactory.addMentor(nMCtrl.newMentorObject);
         nMCtrl.mentorArray.push(nMCtrl.newMentorObject); 
         localStorage.setItem('mentorArray', JSON.stringify(nMCtrl.mentorArray));
-        nSMtrl.newMentorObject = {
+        nMCtrl.newMentorObject = {
                         name: '',
-                        bio: '',
-                        qualificaions: '',
+                        bio: '', 
+                        qualifications: '',
                     }
+
         console.log('Hello from ', nMCtrl.newMentorObject);
         console.log('mentors ', MFactory.getMentors());
         }
@@ -278,7 +288,7 @@ function mentorFactory () {
 
     var addMentor = function (mentor){
         console.log('Heck yes ', mentor);
-        studentList.push(student);
+        mentorList.push(mentor);
         console.log('Yolo ', mentorList);
     }
 
