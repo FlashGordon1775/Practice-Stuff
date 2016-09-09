@@ -18,9 +18,9 @@ angular.module("buckleDown", ["ngRoute"])
     .config(Router);
 
 studentController.$inject = ["SFactory"]
-//newStudentController.$inject = ["SFactory"]
+newStudentController.$inject = ["SFactory"]
 mentorController.$inject = ["MFactory"]
-//newMentorController.$inject = ["MFactory"]
+newMentorController.$inject = ["MFactory"]
 
 Router.$inject = ["$routeProvider"];
 
@@ -90,17 +90,35 @@ function Router ($routeProvider){
     }
 }*/
 
-///////////////////////////////////////////////////////////////////////////////////////////////
-
-function studentController () {
+function studentController (SFactory) {
 
     var sCtrl = this;
 
-    sCtrl.nameText = "Your mom";
+    sCtrl.studentFound = false;
 
-    sCtrl.bioText = "Scenester DIY shoreditch deep v tote bag, street art paleo. Before they sold out blog salvia listicle, beard keytar in art party est readymade kale chips +1 crucifix id try-hard.Sustainable mixtape fingerstache, pitchfork banjo meditation hashtag artisan kitsch. Sustainable 3 wolf moon helvetica food truck art party, tote bag celiac. Dreamcatcher man bun YOLO butcher, literally banjo jean shorts twee next level drinking vinegar squid yuccie PBR&B art party brooklyn."
+    sCtrl.studentIndex = -1;
 
-    sCtrl.goalsText = "Hammock 8-bit lo-fi ullamco kombucha craft beer. Gentrify tempor wayfarers roof party pop-up. Ugh everyday carry semiotics tattooed nisi actually. Yuccie chia four dollar toast sint photo booth. Street art meggings synth, knausgaard fingerstache tofu lo-fi. Ennui letterpress flexitarian polaroid";
+    var studentArray = SFactory.getStudentsLocal();
+
+    sCtrl.searchStudent = function (name) {
+        sCtrl.studentFound = false;
+        for (var i = 0; i < studentArray.length; i++){
+            if(studentArray[i].name ==  name){
+                sCtrl.nameText = studentArray[i].name;
+                sCtrl.bioText = studentArray[i].bio;
+                sCtrl.goalsText = studentArray[i].goals;
+                sCtrl.studentFound = true;
+                sCtrl.studentIndex = i;
+            }
+        }
+       
+    }
+
+    // sCtrl.nameText = "Your mom";
+
+    // sCtrl.bioText = "Scenester DIY shoreditch deep v tote bag, street art paleo. Before they sold out blog salvia listicle, beard keytar in art party est readymade kale chips +1 crucifix id try-hard.Sustainable mixtape fingerstache, pitchfork banjo meditation hashtag artisan kitsch. Sustainable 3 wolf moon helvetica food truck art party, tote bag celiac. Dreamcatcher man bun YOLO butcher, literally banjo jean shorts twee next level drinking vinegar squid yuccie PBR&B art party brooklyn."
+
+    // sCtrl.goalsText = "Hammock 8-bit lo-fi ullamco kombucha craft beer. Gentrify tempor wayfarers roof party pop-up. Ugh everyday carry semiotics tattooed nisi actually. Yuccie chia four dollar toast sint photo booth. Street art meggings synth, knausgaard fingerstache tofu lo-fi. Ennui letterpress flexitarian polaroid";
     
     sCtrl.myVar1 = false;
 
@@ -109,20 +127,21 @@ function studentController () {
     sCtrl.updateProfile = function(){
         sCtrl.myVar1 = !sCtrl.myVar1;
         console.log('hi');
+        console.log(sCtrl.studentIndex);
+        if (sCtrl.studentIndex != -1) {
+            studentArray[sCtrl.studentIndex].name = sCtrl.nameText;
+            studentArray[sCtrl.studentIndex].bio = sCtrl.bioText;
+            studentArray[sCtrl.studentIndex].goals = sCtrl.goalsText;
+            SFactory.setStudentsLocal(studentArray);
+    }
+        console.log('hello');
 
-    console.log('hello');
+    /*I need to make the updates to the user profiles permanent. 
+    Figure out how to do this in localStorage for now. */
+
+
 
     }
-    
-    /*sCtrl.student = SFactory.studentList; //This and the following function should be put in a new controller for creating new students.
-
-    $timeout(function(){
-        sCtrl.student.push({
-            name: "Craig",
-            bio: "yakity yakity kitty",
-            goals: "blu blu blah",
-        });
-    }, 5000);*/
 
 };
 
@@ -132,9 +151,9 @@ function mentorController () {
 
     mCtrl.nameText = "Rob Gordon";
 
-    mCtrl.bioText = ""
+    mCtrl.bioText = "Scenester DIY shoreditch deep v tote bag, street art paleo. Before they sold out blog salvia listicle, beard keytar in art party est readymade kale chips +1 crucifix id try-hard.Sustainable mixtape fingerstache, pitchfork banjo meditation hashtag artisan kitsch. Sustainable 3 wolf moon helvetica food truck art party, tote bag celiac. Dreamcatcher man bun YOLO butcher, literally banjo jean shorts twee next level drinking vinegar squid yuccie PBR&B art party brooklyn."
     
-    mCtrl.qualificationsText = ""
+    mCtrl.qualificationsText = "Hammock 8-bit lo-fi ullamco kombucha craft beer. Gentrify tempor wayfarers roof party pop-up. Ugh everyday carry semiotics tattooed nisi actually. Yuccie chia four dollar toast sint photo booth. Street art meggings synth, knausgaard fingerstache tofu lo-fi. Ennui letterpress flexitarian polaroid"
 
     mCtrl.myVar1 = false;
 
@@ -264,11 +283,20 @@ function studentFactory () {
 
     }
 
+    var getStudentsLocal = function(){
+        return JSON.parse(localStorage.getItem('studentArray')) || [];
+    }
+
+    var setStudentsLocal = function(updatedStudents){
+        localStorage.setItem('studentArray', JSON.stringify(updatedStudents));
+    }
+
     return {
 
         addStudent : addStudent,
         getStudents : getStudents,
-
+        getStudentsLocal : getStudentsLocal,
+        setStudentsLocal : setStudentsLocal,
     }
 
 }

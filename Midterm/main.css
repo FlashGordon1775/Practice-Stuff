@@ -16,20 +16,21 @@ body {
     background-size: 20%;
     background-repeat: no-repeat;
     background-position: left bottom;
+    height: 100vh;
 }
 
 header {
-    width: 100%;
+    width: 25%;
     height: 50px;
-    margin: auto;
-    background-color: black;
+    margin-left: 0;
+    background-color: #193446;
     border-bottom: 1px solid white;
 }
 
 .brand {
     text-align: center;
-    color: white;
-    font-size: 350%;
+    color: #E9C77B;
+    font-size: 200%;
     line-height: 50px;
 }
 
@@ -40,29 +41,31 @@ nav {
 
 nav a {
     display: block;
-    padding: 5px 0;
+    padding: 7px 0;
     border-bottom: 1px solid white;
-    color: white;
+    color: #E9C77B;
 }
 
 nav a:hover {
-    color: deepskyblue;
+    color: #193446;
+    background-color: #E9C77B;
 }
 
 .menu {
     width: 25%;
     height: 100%;
-    position: absolute;
-    background-color: black;
+    position: fixed;
+    background-color: #193446;
     left: 0%;
     transition: .3s ease-in-out;
 }
 
 .menu-icon {
-    color: white;
-    float: left;
+    color: #E9C77B;
+    float: right;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 10px 10px;
+    /*font-size: 20px;*/
 }
 
 #menuToggle {
@@ -77,8 +80,24 @@ nav a:hover {
 
 .search {
     width: 70%;
-    margin: 5px 0px;
+    margin: 10px 0px;
 }
+
+.find {
+    text-align: center;
+    border: 1px solid #193446;
+    background-color: #193446;
+    padding: 7px 0px;
+}
+
+.find-btn {
+    background-color: #E9C77B;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 2px;
+    border: none;
+}
+
 
 .name {
     margin: 5px 0px;
@@ -89,8 +108,9 @@ nav a:hover {
     width: 70%;
     height: 100%;
     margin-left: 30%;
-    padding-right: 10%;
-    padding-top: 25px;
+    padding-right: 5%;
+    padding-top: 10px;
+    background-color: white;
 }
 
 /*.content p {
@@ -160,10 +180,16 @@ textarea {
 }
 
 h2 {
-    background-color: grey;
     top: 50px;
-    text-align: center;
+    text-align: right;
+    padding-right: 20px;
     margin: 0;
+    color: #193446;
+    border-bottom: 1px solid #193446;
+}
+
+h5 {
+    text-decoration: underline;
 }
 
 /*.ng-view {
@@ -182,6 +208,7 @@ h2 {
 
 img {
     width: 100%;
+    height: 10%;
 }
 
 .user-div {
