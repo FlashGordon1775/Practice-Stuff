@@ -1,4 +1,4 @@
-angular.module("buckleDown", ["ngRoute"])
+angular.module("buckleDown", ["ngRoute", "ngAnimate"])
     .controller("students",
      studentController)
      /*.controller("quotes", 
@@ -74,21 +74,12 @@ function Router ($routeProvider){
         .when("/signup", {
             templateUrl: "templates/signup.html", 
             controller: "signup as signupCtrl"     
+        })
+        .when("/contact", {
+            templateUrl: "templates/contact.html"
+
         });
 }
-
-/*function quoteController ($http) {
-    var qCtrl = this;
-    qCtrl.quoteData = {value:{joke:''}}
-    window.onload = function () {
-        console.log('Test');
-        $http.get('http://api.icndb.com/jokes/random')
-        .then(function (response){
-        console.log("Response from API: ", response.data);
-        qCtrl.quoteData = response.data;
-        });
-    }
-}*/
 
 function studentController (SFactory) {
 
@@ -113,12 +104,6 @@ function studentController (SFactory) {
         }
        
     }
-
-    // sCtrl.nameText = "Your mom";
-
-    // sCtrl.bioText = "Scenester DIY shoreditch deep v tote bag, street art paleo. Before they sold out blog salvia listicle, beard keytar in art party est readymade kale chips +1 crucifix id try-hard.Sustainable mixtape fingerstache, pitchfork banjo meditation hashtag artisan kitsch. Sustainable 3 wolf moon helvetica food truck art party, tote bag celiac. Dreamcatcher man bun YOLO butcher, literally banjo jean shorts twee next level drinking vinegar squid yuccie PBR&B art party brooklyn."
-
-    // sCtrl.goalsText = "Hammock 8-bit lo-fi ullamco kombucha craft beer. Gentrify tempor wayfarers roof party pop-up. Ugh everyday carry semiotics tattooed nisi actually. Yuccie chia four dollar toast sint photo booth. Street art meggings synth, knausgaard fingerstache tofu lo-fi. Ennui letterpress flexitarian polaroid";
     
     sCtrl.myVar1 = false;
 
@@ -135,11 +120,6 @@ function studentController (SFactory) {
             SFactory.setStudentsLocal(studentArray);
     }
         console.log('hello');
-
-    /*I need to make the updates to the user profiles permanent. 
-    Figure out how to do this in localStorage for now. */
-
-
 
     }
 
@@ -165,7 +145,7 @@ function mentorController () {
 
     console.log('hello'); 
     /*I need to make the updates to the user profiles permanent. 
-    Figure out how to do this in localStorage for now. */
+    Will do this at a later date. I have it completed for students. Just keep this as an example of a user's page.*/
     }
     
 };
@@ -192,12 +172,7 @@ function newStudentController (SFactory){ //Make form for new student info
 
     nSCtrl.studentArray = JSON.parse(localStorage.getItem('studentArray')) || [];
 
-    nSCtrl.addStudent = function (){
-        /*for (var i =0; i < nSCtrl.studentList.length; i++){
-        nSCtrl.studentList.push({
-             
-        });}
-        console.log(nSCtrl.studentList);*/
+    nSCtrl.addStudent = function (){ //I need to eventually time this in with the facebook comment stream. Each new user should have a fb comment section from the start.
         SFactory.addStudent(nSCtrl.newStudentObject);
         nSCtrl.studentArray.push(nSCtrl.newStudentObject); 
         localStorage.setItem('studentArray', JSON.stringify(nSCtrl.studentArray));
@@ -231,11 +206,7 @@ function newMentorController (MFactory) { //Make form for new mentor info
 
     nMCtrl.mentorArray = JSON.parse(localStorage.getItem('mentorArray')) || [];
 
-    nMCtrl.addMentor = function (){
-        // nMCtrl.mentorList.push({
-        //     name: "Jim",
-        //     bio: "sssssshshsshhshshsh",
-        //     qualificaions: "ermergerd",
+    nMCtrl.addMentor = function (){ //I need to eventually time this in with the facebook comment stream. Each new user should have a fb comment section from the start.
         MFactory.addMentor(nMCtrl.newMentorObject);
         nMCtrl.mentorArray.push(nMCtrl.newMentorObject); 
         localStorage.setItem('mentorArray', JSON.stringify(nMCtrl.mentorArray));
@@ -255,22 +226,22 @@ function newMentorController (MFactory) { //Make form for new mentor info
 function studentFactory () {
 
 
-    var studentList = [
+    // var studentList = [
 
-        {
-            name:   "Bob",
-            bio:    "yak yak yak",
-            goals:  "blah blah blah",
-        },
-        {
-            name:  "Jenn",
-            bio:   "gah gah gah",
-            goals: "ipsum stuff",
-        }
+    //     {
+    //         name:   "Bob",
+    //         bio:    "yak yak yak",
+    //         goals:  "blah blah blah",
+    //     },
+    //     {
+    //         name:  "Jenn",
+    //         bio:   "gah gah gah",
+    //         goals: "ipsum stuff",
+    //     }
 
         
         
-    ];
+    // ];
 
     var addStudent = function (student){
         console.log('Hey ', student);
