@@ -27,9 +27,8 @@ section{
 
 }
 
-form {
 
-}@media (max-width: 675px) {
+@media (max-width: 675px) {
 
 .search {
     display: hidden;
