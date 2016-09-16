@@ -22,30 +22,30 @@
 // addNumbers('rob20bob30');         //Doesn't work at all
 
 
-// var addNumbers = function(string) {
-// 	var numbers = [];
-// 	var lastIsNumber = true;
-// 	var sum = 0;
-// 	for (var i = 0; i < string.length; i++) {
-// 		if(lastIsNumber && parseInt(string[i])) {
-// 			newNumber = string[i-1] + string[i];
-// 			numbers.splice(numbers.length-1, 1);
-// 		}
-// 		else { newNumber = string[i]}
-// 		lastIsNumber = false;
-// 		if(parseInt(string[i])){
-// 			numbers.push(newNumber);
-// 			lastIsNumber = true;
-// 		}
+var addNumbers = function(string) {
+	var numbers = [];
+	var lastIsNumber = true;
+	var sum = 0;
+	for (var i = 0; i < string.length; i++) {
+		if(lastIsNumber && parseInt(string[i])) {
+			newNumber = string[i-1] + string[i];
+			numbers.splice(numbers.length-1, 1);
+		}
+		else { newNumber = string[i]}
+		lastIsNumber = false;
+		if(parseInt(string[i])){
+			numbers.push(newNumber);
+			lastIsNumber = true;
+		}
 
-// 	};
-// 	for (var i = 0; i < numbers.length; i++) {
-// 		sum += parseInt(numbers[i]);
-// 	};
-// 	console.log(sum);
-// 	return sum;
-// }
-// addNumbers("rob91bob91"); //This breaks with numbers over 99. It treats two digit numbers properly, though. I believe it's ignoring zero'
+	};
+	for (var i = 0; i < numbers.length; i++) {
+		sum += parseInt(numbers[i]);
+	};
+	console.log(sum);
+	return sum;
+}
+addNumbers("rob91bob91"); //This breaks with numbers over 99. It treats two digit numbers properly, though. I believe it's ignoring zero'
 
 
 function longestWord(words){
