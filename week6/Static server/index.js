@@ -21,8 +21,8 @@ app.use(express.static(__dirname + '/public'));
 // Routes \\
 // app.get('/', function(req, res){
 //   fs.readFile('data.txt', function(err, data){
-//   res.header('Content-Type', 'text/html')
-//   res.send(data)
+//     res.header('Content-Type', 'text/html')
+//     res.send(data)
 //  });
 // });
 
