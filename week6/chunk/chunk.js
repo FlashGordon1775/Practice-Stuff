@@ -18,13 +18,13 @@
 
 // _.chunk([1,2,3,4,5,6,7,8,9,10], 2); //If we were using lo-dash. This still doesn't split it into a given number of chunks.
 
-// function chunk(arr, sizeC){
+// function chunk(arr, numC){
 //     var chunks = [];
 //     var i = 0;
 //     var l = arr.length;
 
-//     while (i < l) {
-//     chunks.push(arr.slice(i, i += sizeC));
+//     while (l-i > 0) {
+//     chunks.push(arr.slice(i, i += numC));
 //     }
 
 //   return chunks;
@@ -33,10 +33,23 @@
 // console.log(chunk([1,2,3,4,5,6,7,8,9,10], 4)); // This is wrong. The second argument needs to be the number of chunks, not size of chunks.
 
 function chunk(arr, numC){
-    var chunks = [];
-    var i = 0;
     var l = arr.length;
+    var rNum  = Math.floor(l/numC)
+    var chunks = [];
+    var last = 0;
+    
 
-
+for (var i = 0 ; i<numC; i++){
+    if ((l%numC)-(i) > 0 ){
+      var subArr = arr.slice(last, last+rNum+1);
+      last = last+rNum+1;
+    }else{
+      var subArr = arr.slice(last, last+rNum);
+      last = last+rNum;
+    }
+    chunks.push(subArr);
+    }
+  return chunks;
 }
 
+console.log(chunk([1,2,3,4,5,6,7,8,9,10], 6)); 
