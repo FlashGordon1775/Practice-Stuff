@@ -1,0 +1,74 @@
+
+bash-3.2$ mongo                                                                                                                                                                                   
+MongoDB shell version: 3.2.1                                                                                                                                                                      
+connecting to: test                                                                                                                                                                               
+Server has startup warnings:                                                                                                                                                                      
+2016-09-20T09:04:29.169-0600 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.                                                      
+2016-09-20T09:04:29.169-0600 I CONTROL  [initandlisten]                                                                                                                                           
+> use school                                                                                                                                                                                      
+switched to db school                                                                                                                                                                             
+> db.students.insert({name: "Rob Gordon", age: 34}) db.students.insert({name: "Alan Turing", age: 103}) db.students.insert({name: "Dennis Ritchie", age: 74}) ```                                 
+2016-09-20T09:09:52.134-0600 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:50                                                                                           
+                                                                                                                                                                                                  
+> db.students.insert({name: "Rob Gordon", age: 34}) db.students.insert({name: "Alan Turing", age: 103}) db.students.insert({name: "Dennis Ritchie", age: 74})                                     
+2016-09-20T09:11:04.360-0600 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:50                                                                                           
+                                                                                                                                                                                                  
+> db.students.insert({name: "Rob Gordon", age: 34}) db.students.insert({name: "Alan Turing", age: 103}) db.students.insert({name: "Dennis Ritchie", age: 74})                                     
+2016-09-20T09:13:18.547-0600 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:50                                                                                           
+                                                                                                                                                                                                  
+> ;db.students.insert({name: "Rob Gordon", age: 34}) db.students.insert({name: "Alan Turing", age: 103}) db.students.insert({name: "Dennis Ritchie", age: 74})                                    
+2016-09-20T09:13:26.631-0600 E QUERY    [thread1] SyntaxError: missing ; before statement @(shell):1:51                                                                                           
+                                                                                                                                                                                                  
+> db.students.insert({name: "Rob Gordon", age: 34}); db.students.insert({name: "Alan Turing", age: 103}); db.students.insert({name: "Dennis Ritchie", age: 74})                                   
+WriteResult({ "nInserted" : 1 })                                                                                                                                                                  
+> find ({name: "Rob Gordon"})                                                                                                                                                                     
+2016-09-20T10:29:31.484-0600 E QUERY    [thread1] ReferenceError: find is not defined :                                                                                                           
+@(shell):1:1                                                                                                                                                                                      
+                                                                                                                                                                                                  
+> db.students.findOne({name: "Rob Gordon"})                                                                                                                                                       
+{                                                                                                                                                                                                 
+        "_id" : ObjectId("57e15269bcf45f732a52e2ea"),                                                                                                                                             
+        "name" : "Rob Gordon",
+        "age" : 34                                                                                                                                                                                
+}                                                                                                                                                                                                 
+> db.students.update({name: "Rob Gordon"}, { $set: { name: "Flash Gordon" } })                                                                                                                    
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })                                                                                                                                 
+> db.students.find()                                                                                                                                                                              
+{ "_id" : ObjectId("57e15269bcf45f732a52e2ea"), "name" : "Flash Gordon", "age" : 34 }                                                                                                             
+{ "_id" : ObjectId("57e15269bcf45f732a52e2eb"), "name" : "Alan Turing", "age" : 103 }                                                                                                             
+{ "_id" : ObjectId("57e15269bcf45f732a52e2ec"), "name" : "Dennis Ritchie", "age" : 74 }                                                                                                           
+> db.students.remove({name: "Flash Gordon"})                                                                                                                                                      
+WriteResult({ "nRemoved" : 1 })                                                                                                                                                                   
+> db.students.remove({})                                                                                                                                                                          
+WriteResult({ "nRemoved" : 2 })                                                                                                                                                                   
+> db.students.find()                                                                                                                                                                              
+> use zoo                                                                                                                                                                                         
+switched to db zoo                                                                                                                                                                                
+> db.animals.insert({name: "elephant", diet: "herbivore"}); db.animals.insert({name: "lion", diet: "carnivore"})                                                                                  
+WriteResult({ "nInserted" : 1 })                                                                                                                                                                  
+> db.animals.find()                                                                                                                                                                               
+{ "_id" : ObjectId("57e165c9bcf45f732a52e2ed"), "name" : "elephant", "diet" : "herbivore" }                                                                                                       
+{ "_id" : ObjectId("57e165cabcf45f732a52e2ee"), "name" : "lion", "diet" : "carnivore" }                                                                                                           
+> db.visitors.insert({name: "Rob Gordon", favorite animal: "lion"}), db.visitors.insert({name: "Billy Bob", favorite animal: "mongoose"})                                                         
+2016-09-20T10:40:18.495-0600 E QUERY    [thread1] SyntaxError: missing : after property id @(shell):1:49                                                                                          
+                                                                                                                                                                                                  
+> db.visitors.insert({name: "Rob Gordon", favorite-animal: "lion"}), db.visitors.insert({name: "Billy Bob", favorite-animal: "mongoose"})                                                         
+2016-09-20T10:40:47.224-0600 E QUERY    [thread1] SyntaxError: missing : after property id @(shell):1:48                                                                                          
+                                                                                                                                                                                                  
+> db.visitors.insert({name: "Rob Gordon", favorite-animal: "lion"}); db.visitors.insert({name: "Billy Bob", favorite-animal: "mongoose"})                                                         
+2016-09-20T10:41:19.154-0600 E QUERY    [thread1] SyntaxError: missing : after property id @(shell):1:48                                                                                          
+                                                                                                                                                                                                  
+> db.visitors.insert({name: "Rob Gordon", favoriteAnimal: "lion"}); db.visitors.insert({name: "Billy Bob", favoriteAnimal: "mongoose"})                                                           
+WriteResult({ "nInserted" : 1 })                                                                                                                                                                  
+> db.visitors.find()                                                                                                                                                                              
+{ "_id" : ObjectId("57e166eabcf45f732a52e2ef"), "name" : "Rob Gordon", "favoriteAnimal" : "lion" }                                                                                                
+{ "_id" : ObjectId("57e166ebbcf45f732a52e2f0"), "name" : "Billy Bob", "favoriteAnimal" : "mongoose" }                                                                                             
+> db.visitors.update({favoriteAnimal: "mongoose"}, set{favoriteAnimal: "kitten"})                                                                                                                 
+2016-09-20T10:44:33.283-0600 E QUERY    [thread1] SyntaxError: missing ) after argument list @(shell):1:52                                                                                        
+                                                                                                                                                                                                  
+> db.visitors.update({favoriteAnimal: "mongoose"}, {$set: {favoriteAnimal: "kitten"}})                                                                                                            
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })                                                                                                                                 
+> db.visitors.find()                                                                                                                                                                              
+{ "_id" : ObjectId("57e166eabcf45f732a52e2ef"), "name" : "Rob Gordon", "favoriteAnimal" : "lion" }                                                                                                
+{ "_id" : ObjectId("57e166ebbcf45f732a52e2f0"), "name" : "Billy Bob", "favoriteAnimal" : "kitten" }                                                                                               
+>                                                                        
