@@ -5,13 +5,20 @@
         <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js'></script>
         <script src='index.js'></script>
     </head>
-    <body ng-controller='countryController as cCtrl'>
+    <body ng-controller='countries as cCtrl'>
         <div>
 
-            <input type="text" name="name" ng-model="cCtrl.searchCountries" placeholder="Enter Country Name">
+            <input type="text" name="name" ng-model="cCtrl.searchCountry" placeholder="Enter Country Name">
+            <button ng-click="cCtrl.findCountry()">Search Countries</button>
+
+        </div>
+        <div>
             
             <button ng-click='cCtrl.getCountries()'>Load Countries</button>
 
+        </div>
+        <div>
+            <p> {{cCtrl.countries}} </p>
         </div>
     </body>
 </html>

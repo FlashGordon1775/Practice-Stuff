@@ -13,12 +13,27 @@ function countryController($http){
 
         console.log("Getting list of countries...");
 
-        $http.get('/api/countries')
-            .then(function(response){
-                console.log("Response from API: ", response.data);
-                cCtrl.countries = response.data;
-        },function (err) {
-            console.log("Error countryController")
+        $http.get('/countries') 
+            .then(function(response){                                 
+                cCtrl.countries = response.data;                      
+                console.log("Response from API: ", response.data);                                              
+        },function (err) {                                           
+            console.log("Error countryController")  
         });
     }
+
+    console.log('Okay so far...')
+
+    cCtrl.findCountry = function(){ 
+
+        console.log("Retrieving country...");
+
+        $http.get('/search?search=' + cCtrl.searchCountry)
+            .then(function(response){
+                cCtrl.searchCountry.filter = response.data;              
+                console.log("Search result: ", response.data);           
+        },function (err) {
+            console.log("Search Error")
+        })
+    } 
 };
