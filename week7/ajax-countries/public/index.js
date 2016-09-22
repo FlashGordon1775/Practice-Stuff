@@ -7,6 +7,8 @@ countryController.$inject = ['$http'];
 function countryController($http){
     var cCtrl = this;
 
+    cCtrl.result = '';
+
     console.log("Hello from countryController!");
 
     cCtrl.getCountries = function(){
@@ -30,8 +32,8 @@ function countryController($http){
 
         $http.get('/search?search=' + cCtrl.searchCountry)
             .then(function(response){
-                cCtrl.searchCountry.filter = response.data;              
-                console.log("Search result: ", response.data);           
+                cCtrl.result = response.data;              
+                console.log("Search result: ", cCtrl.result);           
         },function (err) {
             console.log("Search Error")
         })

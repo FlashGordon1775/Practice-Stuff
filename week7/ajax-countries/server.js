@@ -45,7 +45,8 @@ app.get('/search', function(request, response){
     console.log('Search is working', request.query.name)
 
     var result = countries.filter(function(element){
-        console.log(element.name, request.query.search);
+        console.log('I am in the filter');
+        console.log("<", element.name, request.query.search);
         if(element.name == request.query.search){
             return true;
         }else{
