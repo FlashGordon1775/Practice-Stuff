@@ -1,0 +1,11 @@
+{
+  "name": "js-problems",
+  "version": "1.0.0",
+  "description": "",
+  "main": "problem-set-6.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
