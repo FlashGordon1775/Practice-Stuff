@@ -1,0 +1,24 @@
+<section class="content page">
+    <div  ng-controller="newStudent as nSCtrl" class="user-div">
+        <h4 class="new">New Students</h4>
+        <input type="image" src="http://www.clker.com/cliparts/K/V/A/5/C/i/baby-silhouette-hi.png" class="new-user"
+         ng-click="nSCtrl.newStudent()" ng-hide="nSCtrl.myVar == true" width="30%" height="30%">
+        <form class="signup-form" ng-show="nSCtrl.myVar == true">
+            <input class="name" type="text" placeholder="name" ng-model="nSCtrl.newStudentObject.name">
+            <textarea name="" id="input-box" cols="30" rows="10" placeholder="bio" ng-model="nSCtrl.newStudentObject.bio"></textarea>
+            <textarea name="" id="input-box" cols="30" rows="10" placeholder="goals" ng-model="nSCtrl.newStudentObject.goals"></textarea>
+            <button type="submit" class="form-button" ng-click="nSCtrl.addStudent(nSCtrl.newStudent())">Submit</button>
+        </form>
+    </div>
+    <div ng-controller="newMentor as nMCtrl" class="user-div">
+        <h4 class="new">New Mentors</h4>
+        <input type="image" src="http://www.clker.com/cliparts/Y/j/p/0/0/y/business-man-hi.png" class="new-mentor"
+         ng-click="nMCtrl.newMentor()" ng-hide="nMCtrl.myVar == true" width="30%" height="30%">
+        <form class="signup-form" ng-show="nMCtrl.myVar == true">
+            <input class="name" type="text" placeholder="name" ng-model="nMCtrl.newMentorObject.name">
+            <textarea name="" id="input-box" cols="30" rows="10" placeholder="bio" ng-model="nMCtrl.newMentorObject.bio"></textarea>
+            <textarea name="" id="input-box" cols="30" rows="10" placeholder="qualifications" ng-model="nMCtrl.newMentorObject.qualifications"></textarea>
+            <button type="submit" class="form-button" ng-click="nMCtrl.addMentor(nMCtrl.newMentor())">Submit</button>
+        </form>
+    </div>
+</section>
