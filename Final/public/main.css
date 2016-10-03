@@ -154,7 +154,12 @@ nav a:hover {
     padding: 2px 4px;
     border-radius: 2px;
     border: none;
-    margin-bottom: 5px;
+    margin: 1em 0;
+}
+
+.login {
+    display: inline;
+    padding-right: 1em;
 }
 
 textarea {

@@ -15,6 +15,7 @@ angular.module("buckleDown", ["ngRoute", "ngAnimate"])
      facebookController)
     // .factory("SFactory", studentFactory)
     // .factory("MFactory", mentorFactory)
+    .controller('authCtrl', aControl)
     .config(Router);
 
 // studentFactory.$inject = ['$http'];
@@ -74,8 +75,8 @@ function Router ($routeProvider){
             templateUrl: "/templates/mentors.html",
             controller: "mentors as mCtrl"
         })
-        .when("/signup", {
-            templateUrl: "/templates/signup.html", 
+        .when("/login-signup", {
+            templateUrl: "/templates/login-signup.html", 
             controller: "signup as signupCtrl"     
         })
         .when("/contact", {
@@ -228,87 +229,54 @@ function newMentorController ($http, MFactory) { //Make form for new mentor info
         }
     }
 
+function aControl ($http) { // window.Auth
+    console.info('Auth controller loaded!');
 
+    var auth = this,
+        alertError = ['alert','alert-danger'];
 
-// function studentFactory ($http) {
+    auth.payload = { // used both for registering and loggin in
+            // ng-models are point to properties on this object
+            // email (ng-model)
+            // password (ng-model)
+        };
 
-//     var studentList = [];
+    auth.login = {
+            // happens when the user clicks submit on the login form
+        submit: function($event) { // click-event
+            console.info('auth.login.submit', $event);
 
-//     // var studentList = [
+            $http.post('/auth', auth.payload)
+                .then(auth.login.success, auth.login.error);
+            },
+        success: function(res) { // server response callback
+            location.href = '/#/chat';
+            },
+        error: function(err) {
+            console.error('Login.error', err);
 
-//     //     {
-//     //         name:   "Bob",
-//     //         bio:    "yak yak yak",
-//     //         goals:  "blah blah blah",
-//     //     },
-//     //     {
-//     //         name:  "Jenn",
-//     //         bio:   "gah gah gah",
-//     //         goals: "ipsum stuff",
-//     //     }
+                // user feedback stuffs, sets up the alert box on error
+            auth.login.alert = alertError;
+            auth.login.message = ( err.data && err.data.message ) || 'Login failed, contact us!';
+            }
+        };
 
-        
-        
-//     // ];
+    auth.register = {
+        submit: function () {
+                // happens when the user clicks submit on the register form
+            $http.post('/register', auth.payload)
+                .then(auth.register.success, auth.register.error);
+            },
+        success: function() {
+                // when register is successful, just redirect them into the dashboard (already logged in)
+            location.href = "/#/chat";
+            },
+        error: function(err) {
+            console.error('auth.register.error', err);
 
-//     var addStudent = function (student){
-//         console.log('Hey ', student);
-//         studentList.push(student);
-//         console.log('Yo ', studentList);
-//     }
-
-//     var getStudents = function(){
-//         return studentList;
-
-//     }
-
-//     var getStudentsLocal = function(){
-//         return JSON.parse(localStorage.getItem('studentArray')) || [];
-//     }
-
-//     var setStudentsLocal = function(updatedStudents){
-//         localStorage.setItem('studentArray', JSON.stringify(updatedStudents));
-//     }
-
-//     return {
-
-//         addStudent : addStudent,
-//         getStudents : getStudents,
-//         getStudentsLocal : getStudentsLocal,
-//         setStudentsLocal : setStudentsLocal,
-//     }
-
-// }
-
-// function mentorFactory ($http) {
-
-//     var mentorList = [
-
-//         {
-//             name: "Rob",
-//             bio: "yada yak blah",
-//             qualificaions: "more ipsum stuff",
-//         }
-
-
-//     ];
-
-//     var addMentor = function (mentor){
-//         console.log('Heck yes ', mentor);
-//         mentorList.push(mentor);
-//         console.log('Yolo ', mentorList);
-//     }
-
-//     var getMentors = function(){
-//         return mentorList;
-
-//     }
-
-//     return {
-
-//         addMentor : addMentor,
-//         getMentors : getMentors,
-
-//     }
-
-// }
+                // user feedback stuffs, sets up the alert box on error
+                auth.register.alert = alertError;
+                auth.register.message = ( err.data && err.data.message ) || 'Register failed, contact us!'
+            }
+        };
+    };

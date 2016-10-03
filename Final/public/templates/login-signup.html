@@ -21,4 +21,37 @@
             <button type="submit" class="form-button" ng-click="nMCtrl.addMentor(nMCtrl.newMentor())">Submit</button>
         </form>
     </div>
+    <div ng-controller="authCtrl as aControl">
+        <h4 class="login">Already a member?</h4><button class="form-button" ng-click="lCtrl.user()">Login</button>
+    </div>
+    <!--Pulled in following code from our recent hackathon. Still needs to be restructured for this project.-->
+    <div ng-controller="authCtrl as aControl" class="container loginstuff">
+        <form ng-submit="aControl.login.submit($event)" class=" well">
+            <h1 class="head" >Login!</h1>
+            <fieldset>
+                <label class="label">Email</label>
+                <input id="emailId" required placeholder="Email" type="email" ng-model="aControl.payload.email"/>
+            </fieldset>
+            <fieldset>
+                <label for="password" class="label">Password</label>
+                <input required placeholder="Password" type="password" ng-model="aControl.payload.password"/>
+            </fieldset>
+            <button type="submit" class="btn">Login</button>
+            <p ng-class="aControl.login.alert">{{ aControl.login.message }}</p>
+        </form>
+
+        <form  ng-submit="aControl.register.submit($event)" class=" well">
+            <h1 class="head" >Register!</h1>
+            <fieldset>
+                <label class="label">Email</label>
+                <input id="emailId" required placeholder="Email" type="text" ng-model="aControl.payload.email"/>
+            </fieldset>
+            <fieldset>
+                <label for="password" class="label">Password</label>
+                <input required placeholder="Create a password" type="password" ng-model="aControl.payload.password"/>
+            </fieldset>
+            <button type="submit" class="btn">Register</button>
+            <p ng-class="aControl.register.alert">{{ aControl.register.message }}</p>
+        </form>
+    </div>
 </section>
