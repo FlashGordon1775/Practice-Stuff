@@ -178,20 +178,65 @@ function newStudentController ($http, SFactory){ //Make form for new student inf
     }
 
 
-    nSCtrl.studentArray = JSON.parse(localStorage.getItem('studentArray')) || [];
+    // nSCtrl.studentArray = JSON.parse(localStorage.getItem('studentArray')) || [];
 
-    nSCtrl.addStudent = function (){ //I need to eventually tie this in with the facebook comment stream. Each new user should have a fb comment section from the start.
-        SFactory.addStudent(nSCtrl.newStudentObject);
-        nSCtrl.studentArray.push(nSCtrl.newStudentObject); 
-        localStorage.setItem('studentArray', JSON.stringify(nSCtrl.studentArray));
-        nSCtrl.newStudentObject = {
-                        name: '',
-                        bio: '',
-                        goals: '',
-                    }
-        console.log('Hello from ', nSCtrl.newStudentObject);
-        console.log('my students ', SFactory.getStudents());
-    }
+    // nSCtrl.addStudent = function (){ //I need to eventually tie this in with the facebook comment stream. Each new user should have a fb comment section from the start.
+    //     SFactory.addStudent(nSCtrl.newStudentObject);
+    //     nSCtrl.studentArray.push(nSCtrl.newStudentObject); 
+    //     localStorage.setItem('studentArray', JSON.stringify(nSCtrl.studentArray));
+    //     nSCtrl.newStudentObject = {
+    //                     name: '',
+    //                     bio: '',
+    //                     goals: '',
+    //                 }
+    //     console.log('Hello from ', nSCtrl.newStudentObject);
+    //     console.log('my students ', SFactory.getStudents());
+    // }
+
+    nSCtrl.payload = { // used both for registering and loggin in
+            // ng-models are point to properties on this object
+            // email (ng-model)
+            // password (ng-model)
+        };
+
+    // nSCtrl.login = {
+    //         // happens when the user clicks submit on the login form
+    //     submit: function($event) { // click-event
+    //         console.info('nSCtrl.login.submit', $event);
+
+    //         $http.post('/auth', auth.payload)
+    //             .then(nSCtrl.login.success, nSCtrl.login.error);
+    //         },
+    //     success: function(res) { // server response callback
+    //         location.href = '/#/chat';
+    //         },
+    //     error: function(err) {
+    //         console.error('Login.error', err);
+
+    //             // user feedback stuffs, sets up the alert box on error
+    //         nSCtrl.login.alert = alertError;
+    //         nSCtrl.login.message = ( err.data && err.data.message ) || 'Login failed, contact us!';
+    //         }
+    //     };
+
+    nSCtrl.register = {
+        submit: function () {
+                // happens when the user clicks submit on the register form
+            $http.post('/register', nSCtrl.payload)
+                .then(nSCtrl.register.success, nSCtrl.register.error);
+            },
+        success: function() {
+                // when register is successful, just redirect them into the dashboard (already logged in)
+            location.href = "/#/chat";
+            },
+        error: function(err) {
+            console.error('nSCtrl.register.error', err);
+
+                // user feedback stuffs, sets up the alert box on error
+                nSCtrl.register.alert = alertError;
+                nSCtrl.register.message = ( err.data && err.data.message ) || 'Register failed, contact us!'
+            }
+        };
 }
 
 function newMentorController ($http, MFactory) { //Make form for new mentor info
@@ -212,21 +257,65 @@ function newMentorController ($http, MFactory) { //Make form for new mentor info
         console.log('hi');
     }
 
-    nMCtrl.mentorArray = JSON.parse(localStorage.getItem('mentorArray')) || [];
+    // nMCtrl.mentorArray = JSON.parse(localStorage.getItem('mentorArray')) || [];
 
-    nMCtrl.addMentor = function (){ //I need to eventually time this in with the facebook comment stream. Each new user should have a fb comment section from the start.
-        MFactory.addMentor(nMCtrl.newMentorObject);
-        nMCtrl.mentorArray.push(nMCtrl.newMentorObject); 
-        localStorage.setItem('mentorArray', JSON.stringify(nMCtrl.mentorArray));
-        nMCtrl.newMentorObject = {
-                        name: '',
-                        bio: '', 
-                        qualifications: '',
-                    }
+    // nMCtrl.addMentor = function (){ //I need to eventually time this in with the facebook comment stream. Each new user should have a fb comment section from the start.
+    //     MFactory.addMentor(nMCtrl.newMentorObject);
+    //     nMCtrl.mentorArray.push(nMCtrl.newMentorObject); 
+    //     localStorage.setItem('mentorArray', JSON.stringify(nMCtrl.mentorArray));
+    //     nMCtrl.newMentorObject = {
+    //                     name: '',
+    //                     bio: '', 
+    //                     qualifications: '',
+    //                 }
 
-        console.log('Hello from ', nMCtrl.newMentorObject);
-        console.log('mentors ', MFactory.getMentors());
-        }
+    //     console.log('Hello from ', nMCtrl.newMentorObject);
+    //     console.log('mentors ', MFactory.getMentors());
+    //     }
+    nMCtrl.payload = { // used both for registering and loggin in
+            // ng-models are point to properties on this object
+            // email (ng-model)
+            // password (ng-model)
+        };
+
+    // nMCtrl.login = {
+    //         // happens when the user clicks submit on the login form
+    //     submit: function($event) { // click-event
+    //         console.info('nMCtrl.login.submit', $event);
+
+    //         $http.post('/auth', auth.payload)
+    //             .then(nMCtrl.login.success, nMCtrl.login.error);
+    //         },
+    //     success: function(res) { // server response callback
+    //         location.href = '/#/chat';
+    //         },
+    //     error: function(err) {
+    //         console.error('Login.error', err);
+
+    //             // user feedback stuffs, sets up the alert box on error
+    //         nMCtrl.login.alert = alertError;
+    //         nMCtrl.login.message = ( err.data && err.data.message ) || 'Login failed, contact us!';
+    //         }
+    //     };
+
+    nMCtrl.register = {
+        submit: function () {
+                // happens when the user clicks submit on the register form
+            $http.post('/register', nMCtrl.payload)
+                .then(nMCtrl.register.success, nMCtrl.register.error);
+            },
+        success: function() {
+                // when register is successful, just redirect them into the dashboard (already logged in)
+            location.href = "/#/chat";
+            },
+        error: function(err) {
+            console.error('nMCtrl.register.error', err);
+
+                // user feedback stuffs, sets up the alert box on error
+                nMCtrl.register.alert = alertError;
+                nMCtrl.register.message = ( err.data && err.data.message ) || 'Register failed, contact us!'
+            }
+        };
     }
 
 function aControl ($http) { // window.Auth
@@ -234,6 +323,13 @@ function aControl ($http) { // window.Auth
 
     var auth = this,
         alertError = ['alert','alert-danger'];
+
+    auth.myVar == false;
+
+    auth.existingUser = function(){
+        auth.myVar = !auth.myVar;
+        console.log('hi');
+    }
 
     auth.payload = { // used both for registering and loggin in
             // ng-models are point to properties on this object
@@ -261,22 +357,22 @@ function aControl ($http) { // window.Auth
             }
         };
 
-    auth.register = {
-        submit: function () {
-                // happens when the user clicks submit on the register form
-            $http.post('/register', auth.payload)
-                .then(auth.register.success, auth.register.error);
-            },
-        success: function() {
-                // when register is successful, just redirect them into the dashboard (already logged in)
-            location.href = "/#/chat";
-            },
-        error: function(err) {
-            console.error('auth.register.error', err);
+    // auth.register = {
+    //     submit: function () {
+    //             // happens when the user clicks submit on the register form
+    //         $http.post('/register', auth.payload)
+    //             .then(auth.register.success, auth.register.error);
+    //         },
+    //     success: function() {
+    //             // when register is successful, just redirect them into the dashboard (already logged in)
+    //         location.href = "/#/chat";
+    //         },
+    //     error: function(err) {
+    //         console.error('auth.register.error', err);
 
-                // user feedback stuffs, sets up the alert box on error
-                auth.register.alert = alertError;
-                auth.register.message = ( err.data && err.data.message ) || 'Register failed, contact us!'
-            }
-        };
+    //             // user feedback stuffs, sets up the alert box on error
+    //             auth.register.alert = alertError;
+    //             auth.register.message = ( err.data && err.data.message ) || 'Register failed, contact us!'
+    //         }
+    //     };
     };

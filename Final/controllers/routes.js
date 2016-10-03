@@ -5,7 +5,7 @@ module.exports = (app) => {
     app.get('/', (req,res) => {
         res.render('home.html');
     });
-
+    
     app.get('/auth', Auth.render);         // login page
     // app.get('/logout', Auth.logout);        // logout route + redirect
 
