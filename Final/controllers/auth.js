@@ -1,4 +1,4 @@
-var User = require('../models/user-schema'),
+var User = require('../model/user-schema'),
     bcrypt = require('bcryptjs'),
     errors = {
         general: {
@@ -62,7 +62,7 @@ module.exports = {
                 res.status(500).send(errors.general);
             } else {
                 console.log('New user created in MongoDB:', user);
-                req.session.user = user;
+                req.session.userId = user._id;
                 res.send(user);
             }
         });

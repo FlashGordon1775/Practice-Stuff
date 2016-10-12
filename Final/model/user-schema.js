@@ -1,7 +1,9 @@
 const SALTY_BITS = 10;
 
 var mongoose = require('mongoose');
-    bcrypt = require('bcryptjs');
+var bcrypt = require('bcryptjs');
+
+// var user = new Schema <---------------------------------- ask if I need to do this
 
 var userSchema = mongoose.Schema( {
     name: {type: String},
@@ -9,19 +11,19 @@ var userSchema = mongoose.Schema( {
     password: {type: String}, //encrypted
     role: {type: Boolean}, //0 for mentee 1 for mentor
     bio: {type: String},
-    area: {type: String}, //Area of focus for mentors and mentees
+    area: {type: String}, //Area of focus for mentors and mentees. 
     created: {
             type: Number,
             default: () => Date.now()
         }
 });
 
-userSchema.pre('save', (next) => {
+userSchema.pre('save', function(next) { //this function can NOT be an arrow function
     var user = this;
     if(!user.isModified('password')){
         return next();
     }
-    bcrypt.genSalt(SALTY_BITS, (saltErr, salt) => {
+    bcrypt.genSalt(SALTY_BITS, function(saltErr, salt) {
         if (saltErr) {
             return next(saltErr);
         }

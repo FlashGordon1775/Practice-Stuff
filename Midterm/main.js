@@ -225,23 +225,8 @@ function newMentorController (MFactory) { //Make form for new mentor info
 
 function studentFactory () {
 
+    var studentList = [];
 
-    // var studentList = [
-
-    //     {
-    //         name:   "Bob",
-    //         bio:    "yak yak yak",
-    //         goals:  "blah blah blah",
-    //     },
-    //     {
-    //         name:  "Jenn",
-    //         bio:   "gah gah gah",
-    //         goals: "ipsum stuff",
-    //     }
-
-        
-        
-    // ];
 
     var addStudent = function (student){
         console.log('Hey ', student);

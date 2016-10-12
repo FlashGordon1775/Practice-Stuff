@@ -2,10 +2,16 @@ var express     = require('express');
 var bodyParser  = require('body-parser');
 var logger      = require('morgan');
 var mongoose    = require('mongoose');
+var sessions    = require ('client-sessions')
+var routes      = require('./controllers/routes'),
+    fileServer  = express.static('public'),
+    fs          = require('fs');
 
-var port = process.env.PORT || 8080;
+var port        = process.env.PORT || 8080;
 
-var app = express();
+var app         = express();
+
+app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
